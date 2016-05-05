@@ -1,8 +1,10 @@
 (function () {
 
   angular.module('kanbangular')
-    .controller('TasksController', ['$scope', function ($scope) {
-
-      $scope.test = 'ohhai';
-    }])
+    .controller('TasksController', [
+      '$scope',
+      'TasksService',
+      function ($scope, TasksService) {
+        $scope.test = 'ohhai';
+      }]);
 })();
