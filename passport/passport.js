@@ -8,7 +8,7 @@ function setUpPassport () {
     done(null, user.id);
   });
 
-  passport.deserialzieUser((id, done) => {
+  passport.deserializeUser((id, done) => {
     User.findById(id)
     .then((user) => {
       done(null, user);
@@ -37,6 +37,6 @@ function setUpPassport () {
       return done(err);
     });
   }));
-};
+}
 
 module.exports = setUpPassport;

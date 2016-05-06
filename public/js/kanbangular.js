@@ -17,7 +17,7 @@
         .when('/register', {
           templateUrl: 'views/register.html',
           controller: 'RegisterController'
-        })
+        });
     }])
     .run([function () {
 

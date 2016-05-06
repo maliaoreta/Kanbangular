@@ -23,6 +23,8 @@ app.use(session({
 
 app.use(passport.initialize());
 app.use(passport.session());
+setUpPassport();
+
 app.use('/register', register);
 app.use('/login', login);
 app.use('/logout', (req, res) => {

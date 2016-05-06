@@ -1,3 +1,5 @@
+'use strict';
+
 const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcrypt');
@@ -10,7 +12,7 @@ router.post('/', (req, res, next) => {
   User.findOne({where: {username: usrname}})
   .then((user) => {
     if (user) {
-      return res.redirect('/register'); 
+      return res.redirect('/register');
     } else {
       bcrypt.hash(password, saltRounds, (err, hash) => {
         User.create({
