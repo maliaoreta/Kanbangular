@@ -5,6 +5,9 @@
       '$scope',
       'TasksService',
       function ($scope, TasksService) {
-        $scope.test = 'ohhai';
+        TasksService.getTodo().then(function(response) {
+          console.log(response);
+          $scope.test = response.data;
+        });
       }]);
 })();

@@ -1,7 +1,7 @@
 (function() {
-  function TasksService() {
+  function TasksService($http) {
     this.getTodo = function() {
-
+      return $http.get('/api/tasks/todo');
     };
 
     this.getInProgress = function() {
@@ -14,5 +14,5 @@
   }
 
   angular.module('kanbangular')
-    .service('TasksService', TasksService);
+    .service('TasksService', ['$http', TasksService]);
 })();
