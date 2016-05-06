@@ -1,9 +1,11 @@
 
 <h1>Todo</h1>
 <div id="todo" ng-repeat="todo in todoList">
-  {{todo.title}}
+  title: {{todo.title}}
   <br>
-  {{todo.description}}
+  description: {{todo.description}}
+  <br>
+  <button ng-click="deleteTask(todo)">Delete</button>
 </div>
 <h1>In-Progress</h1>
 <div id="inProgress" ng-repeat="inProgress in inProgressList">

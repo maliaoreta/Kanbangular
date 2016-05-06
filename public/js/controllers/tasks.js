@@ -22,5 +22,14 @@
             $scope.todoList.push(response.data.newTask);
           });
         };
+
+        $scope.deleteTask = function (task) {
+          TasksService.deleteTask(task.id)
+          .then(function (response) {
+            if (task.status === 'Todo') {
+              $scope.todoList.splice($scope.todoList.indexOf(task), 1);
+            }
+          })
+        }
       }]);
 })();

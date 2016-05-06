@@ -53,4 +53,16 @@ router.route('/done')
     });
   });
 
+router.route('/:id')
+  .delete((req, res) => {
+    Tasks.destroy({
+      where: {
+        id: req.params.id
+      }
+    })
+    .then(() => {
+      res.json({success: true});
+    });
+  });
+
 module.exports = router;

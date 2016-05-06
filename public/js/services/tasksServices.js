@@ -19,6 +19,10 @@
     this.getDone = function() {
       return $http.get('/api/tasks/done');
     };
+
+    this.deleteTask = function (id) {
+      return $http.delete('/api/tasks/' + id);
+    }
   }
 
   angular.module('kanbangular')
