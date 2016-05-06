@@ -12,12 +12,16 @@
   {{inProgress.title}}
   <br>
   {{inProgress.description}}
+  <br>
+  <button ng-click="deleteTask(inProgress)">Delete</button>
 </div>
 <h1>Done</h1>
 <div id="done" ng-repeat="done in doneList">
   {{done.title}}
   <br>
   {{done.description}}
+  <br>
+  <button ng-click="deleteTask(done)">Delete</button>
 </div>
 
 <input type="text" ng-model="newTask.title"></input>

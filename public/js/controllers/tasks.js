@@ -26,8 +26,17 @@
         $scope.deleteTask = function (task) {
           TasksService.deleteTask(task.id)
           .then(function (response) {
-            if (task.status === 'Todo') {
-              $scope.todoList.splice($scope.todoList.indexOf(task), 1);
+
+            switch (task.status) {
+              case 'Todo':
+                $scope.todoList.splice($scope.todoList.indexOf(task), 1);
+                break;
+              case 'In-Progress':
+                $scope.inProgressList.splice($scope.inProgressList.indexOf(task), 1);  
+                break;
+              case 'Done':
+                $scope.doneList.splice($scope.doneList.indexOf(task), 1);
+                break;
             }
           })
         }
