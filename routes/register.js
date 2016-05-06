@@ -4,15 +4,16 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
+const User = require('../models').User;
 
 router.post('/', (req, res, next) => {
   let username = req.body.username;
   let password = req.body.password;
 
-  User.findOne({where: {username: usrname}})
+  User.findOne({where: {username: username}})
   .then((user) => {
     if (user) {
-      return res.redirect('/register');
+      return res.json({path: '/register'});
     } else {
       bcrypt.hash(password, saltRounds, (err, hash) => {
         User.create({
@@ -24,7 +25,7 @@ router.post('/', (req, res, next) => {
             if (err) {
               return next({status: 500, message: 'Login failed'});
             }
-            return res.redirect('/');
+            return res.json({path: '/'});
           });
         });
       });
