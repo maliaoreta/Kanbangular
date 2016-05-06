@@ -6,6 +6,7 @@
   description: {{todo.description}}
   <br>
   <button ng-click="deleteTask(todo)">Delete</button>
+  <button ng-click="moveNext(todo)">></button>
 </div>
 <h1>In-Progress</h1>
 <div id="inProgress" ng-repeat="inProgress in inProgressList">
@@ -14,6 +15,7 @@
   {{inProgress.description}}
   <br>
   <button ng-click="deleteTask(inProgress)">Delete</button>
+  <button ng-click="moveNext(done)">></button>
 </div>
 <h1>Done</h1>
 <div id="done" ng-repeat="done in doneList">

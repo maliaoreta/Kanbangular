@@ -63,6 +63,28 @@ router.route('/:id')
     .then(() => {
       res.json({success: true});
     });
+  })
+  .put((req, res) => {
+    var updatedStatus;
+    switch (req.body.currStatus) {
+      case 'Todo':
+        updatedStatus = 'In-Progress'
+        break;
+      case 'In-Progress':
+        updatedStatus = 'Done'
+        break;
+    }
+
+    Tasks.update({
+      status: updatedStatus
+    }, {
+      where: {
+        id: req.params.id
+      }
+    })
+    .then(() => {
+      res.json({updatedStatus: updatedStatus});
+    });
   });
 
 module.exports = router;

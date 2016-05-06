@@ -23,6 +23,10 @@
     this.deleteTask = function (id) {
       return $http.delete('/api/tasks/' + id);
     }
+
+    this.moveNext = function (id, currStatus) {
+      return $http.put('/api/tasks/' + id, {currStatus: currStatus});
+    }
   }
 
   angular.module('kanbangular')

@@ -37,8 +37,26 @@
               case 'Done':
                 $scope.doneList.splice($scope.doneList.indexOf(task), 1);
                 break;
-            }
-          })
-        }
+            };
+          });
+        };
+
+        $scope.moveNext = function (task) {
+          TasksService.moveNext(task.id, task.status)
+          .then(function (response) {
+            switch (task.status) {
+              case 'Todo':
+                $scope.todoList.splice($scope.todoList.indexOf(task), 1);
+                task.status = response.data.updatedStatus;
+                $scope.inProgressList.push(task);
+                break;
+              case 'In-Progress':
+                $scope.inProgressList.splice($scope.inProgressList.indexOf(task), 1);
+                task.status = response.data.updatedStatus;
+                $scope.doneList.push(response.data.updatedTask);
+                break;
+            };
+          });
+        };
       }]);
 })();
