@@ -25,7 +25,7 @@ router.post('/', (req, res, next) => {
             if (err) {
               return next({status: 500, message: 'Login failed'});
             }
-            return res.json({path: '/'});
+            return res.json({path: '/login'});
           });
         });
       });

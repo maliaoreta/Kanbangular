@@ -3,8 +3,11 @@
   angular.module('kanbangular')
     .controller('TasksController', [
       '$scope',
+      '$window',
+      '$location',
       'TasksService',
-      function ($scope, TasksService) {
+      'AuthService',
+      function ($scope, $window, $location, TasksService, AuthService) {
 
         $scope.taskList = [];
 
@@ -35,5 +38,17 @@
             task.status = response.data.updatedStatus;
           });
         };
+
+        $scope.isLoggedIn = AuthService.isLoggedIn();
+
+        $scope.logout = function () {
+          AuthService.logout()
+          .then(function (response) {
+            $window.sessionStorage.removeItem('userInfo');
+            $scope.isLoggedIn = false;
+            $location.path(response.data.path);
+          });
+        };
+
       }]);
 })();

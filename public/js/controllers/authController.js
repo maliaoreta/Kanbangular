@@ -12,6 +12,7 @@
             $window.sessionStorage.setItem('userInfo', JSON.stringify({
                           username: user.username
                         }))
+            $scope.isLoggedIn = false;
             $location.path(response.data.path);
           });
         }
@@ -22,13 +23,14 @@
             $location.path(response.data.path);
           });
         };
-        
+
         $scope.isLoggedIn = AuthService.isLoggedIn();
 
         $scope.logout = function () {
           AuthService.logout()
           .then(function (response) {
             $window.sessionStorage.removeItem('userInfo');
+            $scope.isLoggedIn = false;
             $location.path(response.data.path);
           });
         };
