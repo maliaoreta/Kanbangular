@@ -17,8 +17,8 @@
       return $http.delete('/api/tasks/' + id);
     };
 
-    this.moveNext = function (id, currStatus) {
-      return $http.put('/api/tasks/' + id, {currStatus: currStatus});
+    this.move = function (id, currStatus, direction) {
+      return $http.put('/api/tasks/' + id, {currStatus: currStatus, direction: direction});
     };
   }
 

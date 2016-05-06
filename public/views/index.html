@@ -7,7 +7,7 @@
   <br>
   status: {{ todo.status }}
   <button ng-click="deleteTask(todo)">Delete</button>
-  <button ng-click="moveNext(todo)">></button>
+  <button ng-click="move(todo, 'right')">></button>
 </div>
 <h1>In-Progress</h1>
 <div id="inProgress" ng-repeat="inProgress in taskList | statusFilter:'In-Progress'">
@@ -17,7 +17,8 @@
   <br>
   status: {{ inProgress.status }}
   <button ng-click="deleteTask(inProgress)">Delete</button>
-  <button ng-click="moveNext(inProgress)">></button>
+  <button ng-click="move(inProgress, 'left')"><</button>
+  <button ng-click="move(inProgress, 'right')">></button>
 </div>
 <h1>Done</h1>
 <div id="done" ng-repeat="done in taskList | statusFilter:'Done'">
@@ -27,6 +28,7 @@
   <br>
   status: {{done.status}}
   <button ng-click="deleteTask(done)">Delete</button>
+  <button ng-click="move(done, 'left')"><</button>
 </div>
 
 

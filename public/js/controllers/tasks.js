@@ -30,8 +30,8 @@
           });
         };
 
-        $scope.moveNext = function (task) {
-          TasksService.moveNext(task.id, task.status)
+        $scope.move = function (task, direction) {
+          TasksService.move(task.id, task.status, direction)
           .then(function (response) {
             task.status = response.data.updatedStatus;
           });

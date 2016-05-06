@@ -36,14 +36,30 @@ router.route('/:id')
   })
   .put((req, res) => {
     var updatedStatus;
-    switch (req.body.currStatus) {
-      case 'Todo':
-        updatedStatus = 'In-Progress';
-        break;
-      case 'In-Progress':
-        updatedStatus = 'Done';
-        break;
+
+    if (req.body.direction === 'right') {
+
+      switch (req.body.currStatus) {
+        case 'Todo':
+          updatedStatus = 'In-Progress';
+          break;
+        case 'In-Progress':
+          updatedStatus = 'Done';
+          break;
+      }
     }
+    else if (req.body.direction === 'left') {
+
+     switch (req.body.currStatus) {
+        case 'Done':
+          updatedStatus = 'In-Progress';
+          break;
+        case 'In-Progress':
+          updatedStatus = 'Todo';
+          break;
+      } 
+    }
+
 
     Tasks.update({
       status: updatedStatus
