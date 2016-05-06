@@ -6,56 +6,34 @@
       'TasksService',
       function ($scope, TasksService) {
 
-        TasksService.getTodo().then(function(response) {
-          $scope.todoList = response.data.todoList;
-        });
-        TasksService.getInProgress().then(function (response) {
-          $scope.inProgressList = response.data.inProgressList;
-        });
-        TasksService.getDone().then(function (response) {
-          $scope.doneList = response.data.doneList;
+        $scope.taskList = [];
+
+        TasksService.getTasks().then(function(response) {
+          $scope.taskList = response.data.taskList;
+          //console.log($scope.taskList);
         });
 
         $scope.postTask = function(newTask) {
-          TasksService.postTask(newTask.title, newTask.description)
+          TasksService.postTask(newTask.title, newTask.description, newTask.status)
           .then(function(response) {
-            $scope.todoList.push(response.data.newTask);
+            $scope.taskList.push(response.data.newTask);
+            newTask.title = '';
+            newTask.description = '';
+            newTask.status = '';
           });
         };
 
         $scope.deleteTask = function (task) {
           TasksService.deleteTask(task.id)
           .then(function (response) {
-
-            switch (task.status) {
-              case 'Todo':
-                $scope.todoList.splice($scope.todoList.indexOf(task), 1);
-                break;
-              case 'In-Progress':
-                $scope.inProgressList.splice($scope.inProgressList.indexOf(task), 1);  
-                break;
-              case 'Done':
-                $scope.doneList.splice($scope.doneList.indexOf(task), 1);
-                break;
-            };
+            $scope.taskList.splice($scope.taskList.indexOf(task), 1);
           });
         };
 
         $scope.moveNext = function (task) {
           TasksService.moveNext(task.id, task.status)
           .then(function (response) {
-            switch (task.status) {
-              case 'Todo':
-                $scope.todoList.splice($scope.todoList.indexOf(task), 1);
-                task.status = response.data.updatedStatus;
-                $scope.inProgressList.push(task);
-                break;
-              case 'In-Progress':
-                $scope.inProgressList.splice($scope.inProgressList.indexOf(task), 1);
-                task.status = response.data.updatedStatus;
-                $scope.doneList.push(response.data.updatedTask);
-                break;
-            };
+            task.status = response.data.updatedStatus;
           });
         };
       }]);

@@ -5,51 +5,21 @@ const router = express.Router();
 const Tasks = require('../models').Task;
 
 router.route('/')
+  .get((req, res) => {
+    Tasks.findAll()
+    .then((tasks) => {
+      res.json({taskList: tasks});
+    });
+  })
   .post((req, res) => {
     console.log(req.body);
     Tasks.create({
       title: req.body.title,
       description: req.body.description,
-      status: "Todo"
+      status: req.body.status
     })
     .then((task) => {
       res.json({newTask: task});
-    });
-  });
-
-router.route('/todo')
-  .get((req, res) => {
-    Tasks.findAll({
-      where: {
-        status: 'Todo'
-      }
-    })
-    .then((todos) => {
-      res.json({todoList: todos});
-    });
-  });
-
-router.route('/inProgress')
-  .get((req, res) => {
-    Tasks.findAll({
-      where: {
-        status: 'In-Progress'
-      }
-    })
-    .then((inProgress) => {
-      res.json({inProgressList: inProgress});
-    });
-  });
-
-router.route('/done')
-  .get((req, res) => {
-    Tasks.findAll({
-      where: {
-        status: 'Done'
-      }
-    })
-    .then((done) => {
-      res.json({doneList: done});
     });
   });
 
@@ -68,10 +38,10 @@ router.route('/:id')
     var updatedStatus;
     switch (req.body.currStatus) {
       case 'Todo':
-        updatedStatus = 'In-Progress'
+        updatedStatus = 'In-Progress';
         break;
       case 'In-Progress':
-        updatedStatus = 'Done'
+        updatedStatus = 'Done';
         break;
     }
 

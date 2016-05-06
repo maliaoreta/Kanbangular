@@ -1,32 +1,25 @@
 (function() {
   function TasksService($http) {
 
-    this.getTodo = function() {
-      return $http.get('/api/tasks/todo');
+    this.getTasks = function() {
+      return $http.get('/api/tasks/');
     };
 
-    this.postTask = function(title, description) {
+    this.postTask = function(title, description, status) {
       return $http.post('/api/tasks/', {
         title: title,
-        description: description
+        description: description,
+        status: status
       });
-    };
-
-    this.getInProgress = function() {
-      return $http.get('/api/tasks/inProgress');
-    };
-
-    this.getDone = function() {
-      return $http.get('/api/tasks/done');
     };
 
     this.deleteTask = function (id) {
       return $http.delete('/api/tasks/' + id);
-    }
+    };
 
     this.moveNext = function (id, currStatus) {
       return $http.put('/api/tasks/' + id, {currStatus: currStatus});
-    }
+    };
   }
 
   angular.module('kanbangular')

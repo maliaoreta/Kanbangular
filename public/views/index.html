@@ -1,31 +1,36 @@
 
 <h1>Todo</h1>
-<div id="todo" ng-repeat="todo in todoList">
+<div id="todo" ng-repeat="todo in taskList | statusFilter:'Todo'">
   title: {{todo.title}}
   <br>
   description: {{todo.description}}
   <br>
+  status: {{ todo.status }}
   <button ng-click="deleteTask(todo)">Delete</button>
   <button ng-click="moveNext(todo)">></button>
 </div>
 <h1>In-Progress</h1>
-<div id="inProgress" ng-repeat="inProgress in inProgressList">
+<div id="inProgress" ng-repeat="inProgress in taskList | statusFilter:'In-Progress'">
   {{inProgress.title}}
   <br>
   {{inProgress.description}}
   <br>
+  status: {{ inProgress.status }}
   <button ng-click="deleteTask(inProgress)">Delete</button>
-  <button ng-click="moveNext(done)">></button>
+  <button ng-click="moveNext(inProgress)">></button>
 </div>
 <h1>Done</h1>
-<div id="done" ng-repeat="done in doneList">
+<div id="done" ng-repeat="done in taskList | statusFilter:'Done'">
   {{done.title}}
   <br>
   {{done.description}}
   <br>
+  status: {{done.status}}
   <button ng-click="deleteTask(done)">Delete</button>
 </div>
 
+
 <input type="text" ng-model="newTask.title"></input>
 <input type="text" ng-model="newTask.description"></input>
+<input type="text" ng-model="newTask.status"></input>
 <button ng-click="postTask(newTask)">Submit</button>
