@@ -10,6 +10,14 @@
           templateUrl: 'views/index.html',
           controller: 'TasksController'
         })
+        .when('/login', {
+          templateUrl: 'views/login.html',
+          controller: 'LoginController'
+        })
+        .when('/register', {
+          templateUrl: 'views/register.html',
+          controller: 'RegisterController'
+        })
     }])
     .run([function () {
 

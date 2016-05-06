@@ -10,7 +10,6 @@
 
         TasksService.getTasks().then(function(response) {
           $scope.taskList = response.data.taskList;
-          //console.log($scope.taskList);
         });
 
         $scope.postTask = function(newTask) {
