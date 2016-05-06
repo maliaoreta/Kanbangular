@@ -27,12 +27,12 @@ setUpPassport();
 
 app.use('/register', register);
 app.use('/login', login);
-app.use('/logout', (req, res) => {
-  req.logout();
-  res.redirect('/');
-});
-
 app.use('/api/tasks', tasks);
+
+app.get('/logout', (req, res) => {
+  req.logout();
+  res.json({path :'/'});
+});
 
 app.get('*', (req, res) => {
   res.sendFile('/public/index.html', {

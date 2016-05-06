@@ -1,3 +1,8 @@
+<div id="header">
+  <a href='/login' ng-hide="isLoggedIn">Login</a>
+  <a href='/logout' ng-click="logout()">Logout</a>
+  <a href='/register'>Register</a>
+</div>
 
 <h1>Todo</h1>
 <div id="todo" ng-repeat="todo in taskList | statusFilter:'Todo'">

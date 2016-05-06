@@ -11,6 +11,10 @@
             $location.path(response.data.path);
           });
         };
+        
+        $scope.isLoggedIn = function () {
+          return LoginService.isLoggedIn();
+        }
       }
     ]);
 })();

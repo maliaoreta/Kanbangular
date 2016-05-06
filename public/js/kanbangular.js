@@ -17,11 +17,11 @@
         })
         .when('/login', {
           templateUrl: 'views/login.html',
-          controller: 'LoginController'
+          controller: 'AuthController'
         })
         .when('/register', {
           templateUrl: 'views/register.html',
-          controller: 'RegisterController'
+          controller: 'AuthController'
         });
     }])
     .run([function () {

@@ -1,3 +1,9 @@
+<div id="header">
+  <a href='/login' ng-hide="isLoggedIn">Login</a>
+  <a href='/logout' ng-click="logout()">Logout</a>
+  <a href='/register'>Register</a>
+</div>
+
 <input type="text" placeholder="username" ng-model="user.username"></input>
 <input type="password" placeholder="password" ng-model="user.password"></input>
 <button ng-click="register(user)">Register</button>
