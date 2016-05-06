@@ -2,9 +2,10 @@
 
 const express = require('express');
 const router = express.Router();
+// const { router } from 'express';
 const passport = require('passport');
 
-router.get('/sucesss', (req, res) => {
+router.get('/success', (req, res) => {
   res.json({path: '/'});
 });
 
@@ -18,3 +19,5 @@ router.post('/', passport.authenticate('login', {
 }));
 
 module.exports = router;
+
+// export router;

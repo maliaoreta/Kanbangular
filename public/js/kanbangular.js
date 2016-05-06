@@ -3,7 +3,12 @@
   angular.module('kanbangular', ['ngRoute']);
 
   var kanbangular = angular.module('kanbangular');
-    kanbangular.config(['$routeProvider', function ($routeProvider) {
+    kanbangular.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
+
+      $locationProvider.html5Mode({
+        enabled: true,
+        requireBase: false
+      });
 
       $routeProvider
         .when('/', {

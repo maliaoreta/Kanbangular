@@ -8,8 +8,7 @@
         $scope.login = function(user) {
           LoginService.login(user.username, user.password)
           .then(function(response) {
-            console.log(response.data.path);
-            $location.path('/');
+            $location.path(response.data.path);
           });
         };
       }
