@@ -5,11 +5,11 @@
     };
 
     this.getInProgress = function() {
-
+      return $http.get('/api/tasks/inProgress');
     };
 
     this.getDone = function() {
-
+      return $http.get('/api/tasks/done');
     };
   }
 

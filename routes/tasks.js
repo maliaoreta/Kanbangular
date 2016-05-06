@@ -24,4 +24,28 @@ router.route('/todo')
     });
   });
 
+router.route('/inProgress')
+  .get((req, res) => {
+    Tasks.findAll({
+      where: {
+        status: 'In-Progress'
+      }
+    })
+    .then((inProgress) => {
+      res.json({data: inProgress});
+    });
+  });
+
+router.route('/done')
+  .get((req, res) => {
+    Tasks.findAll({
+      where: {
+        status: 'Done'
+      }
+    })
+    .then((done) => {
+      res.json({data: done});
+    });
+  });
+
 module.exports = router;

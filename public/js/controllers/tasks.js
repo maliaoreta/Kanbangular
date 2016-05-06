@@ -6,8 +6,13 @@
       'TasksService',
       function ($scope, TasksService) {
         TasksService.getTodo().then(function(response) {
-          console.log(response);
-          $scope.test = response.data;
+          $scope.todos = response.data;
+        });
+        TasksService.getInProgress().then(function (response) {
+          $scope.inProgress = response.data;
+        });
+        TasksService.getDone().then(function (response) {
+          $scope.done = response.data;
         });
       }]);
 })();
