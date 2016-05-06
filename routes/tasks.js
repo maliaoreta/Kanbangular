@@ -5,11 +5,16 @@ const router = express.Router();
 const Tasks = require('../models').Task;
 
 router.route('/')
-  .get((req, res) => {
-    res.send('ok');
-  })
   .post((req, res) => {
-    res.send('ok');
+    console.log(req.body);
+    Tasks.create({
+      title: req.body.title,
+      description: req.body.description,
+      status: "Todo"
+    })
+    .then((task) => {
+      res.json({newTask: task});
+    });
   });
 
 router.route('/todo')
@@ -20,7 +25,7 @@ router.route('/todo')
       }
     })
     .then((todos) => {
-      res.json({data: todos});
+      res.json({todoList: todos});
     });
   });
 
@@ -32,7 +37,7 @@ router.route('/inProgress')
       }
     })
     .then((inProgress) => {
-      res.json({data: inProgress});
+      res.json({inProgressList: inProgress});
     });
   });
 
@@ -44,7 +49,7 @@ router.route('/done')
       }
     })
     .then((done) => {
-      res.json({data: done});
+      res.json({doneList: done});
     });
   });
 

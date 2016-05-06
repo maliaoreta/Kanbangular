@@ -5,14 +5,22 @@
       '$scope',
       'TasksService',
       function ($scope, TasksService) {
+
         TasksService.getTodo().then(function(response) {
-          $scope.todos = response.data;
+          $scope.todoList = response.data.todoList;
         });
         TasksService.getInProgress().then(function (response) {
-          $scope.inProgress = response.data;
+          $scope.inProgressList = response.data.inProgressList;
         });
         TasksService.getDone().then(function (response) {
-          $scope.done = response.data;
+          $scope.doneList = response.data.doneList;
         });
+
+        $scope.postTask = function(newTask) {
+          TasksService.postTask(newTask.title, newTask.description)
+          .then(function(response) {
+            $scope.todoList.push(response.data.newTask);
+          });
+        };
       }]);
 })();

@@ -1,5 +1,23 @@
-{{todos.data}}
-<br>
-{{inProgress.data}}
-<br>
-{{done.data}}
+
+<h1>Todo</h1>
+<div id="todo" ng-repeat="todo in todoList">
+  {{todo.title}}
+  <br>
+  {{todo.description}}
+</div>
+<h1>In-Progress</h1>
+<div id="inProgress" ng-repeat="inProgress in inProgressList">
+  {{inProgress.title}}
+  <br>
+  {{inProgress.description}}
+</div>
+<h1>Done</h1>
+<div id="done" ng-repeat="done in doneList">
+  {{done.title}}
+  <br>
+  {{done.description}}
+</div>
+
+<input type="text" ng-model="newTask.title"></input>
+<input type="text" ng-model="newTask.description"></input>
+<button ng-click="postTask(newTask)">Submit</button>

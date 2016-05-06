@@ -1,7 +1,15 @@
 (function() {
   function TasksService($http) {
+
     this.getTodo = function() {
       return $http.get('/api/tasks/todo');
+    };
+
+    this.postTask = function(title, description) {
+      return $http.post('/api/tasks/', {
+        title: title,
+        description: description
+      });
     };
 
     this.getInProgress = function() {

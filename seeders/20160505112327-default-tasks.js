@@ -23,6 +23,27 @@ module.exports = {
           status: 'Done',
           createdAt: new Date(),
           updatedAt: new Date()
+        },
+        {
+          title: 'finish project',
+          description: 'finish project',
+          status: 'Todo',
+          createdAt: new Date(),
+          updatedAt: new Date()
+        },
+        {
+          title: 'finish database',
+          description: 'finish database',
+          status: 'In-Progress',
+          createdAt: new Date(),
+          updatedAt: new Date()
+        },
+        {
+          title: 'finish server',
+          description: 'finish server',
+          status: 'Done',
+          createdAt: new Date(),
+          updatedAt: new Date()
         }
       ], {});
   },
@@ -37,6 +58,15 @@ module.exports = {
       },
       {
         title: 'start server'
+      },
+      {
+        title: 'finish project'
+      },
+      {
+        title: 'finish database'
+      },
+      {
+        title: 'finish server'
       }
       ], {});
   }
