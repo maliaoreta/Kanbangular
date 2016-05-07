@@ -11,17 +11,20 @@
 
         // if (!AuthService.isLoggedIn()) {
         //   $location.path('/login');
-        // } 
+        // }
 
         $scope.taskList = [];
 
         TasksService.getTasks().then(function(response) {
-          if (response.data.path) {
-            $location.path(response.data.path);
-          }
-          else {
-            $scope.taskList = response.data.taskList;
-          }
+          // if (response.data.path) {
+          //   $location.path(response.data.path);
+          // }
+          // else {
+            if(response.data.taskList) {
+
+              $scope.taskList = response.data.taskList;
+            }
+          // }
         });
 
         $scope.postTask = function(newTask) {
@@ -79,16 +82,6 @@
           .then(function (response) {
             task.title = updatedFields.title;
             task.description = updatedFields.description;
-          });
-        };
-
-        $scope.isLoggedIn = AuthService.isLoggedIn();
-
-        $scope.logout = function () {
-          AuthService.logout()
-          .then(function (response) {
-            // $window.sessionStorage.removeItem('userInfo');
-            $location.path(response.data.path);
           });
         };
 

@@ -13,7 +13,12 @@
       $routeProvider
         .when('/', {
           templateUrl: 'views/index.html',
-          controller: 'TasksController'
+          controller: 'TasksController',
+          resolve: {
+            loggedin: function() {
+              return false;
+            }
+          }
         })
         .when('/login', {
           templateUrl: 'views/login.html',
