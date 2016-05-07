@@ -1,0 +1,24 @@
+#tasks {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.task-container {
+  flex: 0 1 33%;
+  text-align: center;
+}
+
+.task-column {
+  display: flex;
+  flex-flow: column nowrap;
+  background-color: red;
+  height: 20em;
+  align-items: center;
+  border: 1px solid black;
+}
+
+.task {
+  flex: 0 0 100%;
+  border: 1px solid black;
+  width: 100%;
+}

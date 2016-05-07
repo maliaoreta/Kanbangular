@@ -31,5 +31,11 @@
     "pg": "^4.5.5",
     "pg-hstore": "^2.3.2",
     "sequelize": "^3.22.0"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.12.5",
+    "gulp": "^3.9.1",
+    "gulp-nodemon": "^2.0.6",
+    "gulp-sass": "^2.3.1"
   }
 }
