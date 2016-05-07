@@ -37,8 +37,6 @@ h1 {
   }
 }
 
-
-
 .task-column {
   display: flex;
   flex-flow: column nowrap;
@@ -62,3 +60,7 @@ h1 {
   }
 }
 
+.arrows {
+  display: flex;
+  justify-content: center;
+}
