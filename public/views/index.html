@@ -14,15 +14,16 @@
   <div class="task-column">
     <div class="task" ng-repeat="todo in taskList | statusFilter:'Todo'">
         <div class="todoTask" ng-hide="toggleForm">
-          <div class="body">
-            <div>title: {{todo.title}}</div>
-            <div> description: {{todo.description}}</div>
-            <div>status: {{ todo.status }}</div>
-          </div>
 
           <div class="buttons">
             <button ng-click="toggleForm = !toggleForm">Edit</button>
             <button ng-click="deleteTask(todo)">Delete</button>
+          </div>
+
+          <div class="body">
+            <div>title: {{todo.title}}</div>
+            <div> description: {{todo.description}}</div>
+            <div>status: {{ todo.status }}</div>
           </div>
 
           <div class="arrows">

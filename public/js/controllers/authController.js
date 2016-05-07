@@ -10,6 +10,7 @@
         $scope.login = function(user) {
           AuthService.login(user.username, user.password)
           .then(function(response) {
+            $window.sessionStorage.setItem('userInfo', {username: user.username});
             $rootScope.isLoggedIn = true;
             $location.path(response.data.path);
           });

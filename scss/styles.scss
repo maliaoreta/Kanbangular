@@ -57,10 +57,24 @@ h1 {
   margin-top: 10px;
   .todoTask {
     text-align: left;
+    display: flex;
+    flex-flow: column nowrap;
   }
 }
 
 .arrows {
   display: flex;
+  flex-flow: row nowrap;
   justify-content: center;
+}
+
+.buttons {
+  display: flex;
+  flex-flow: 0 0 auto;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+}
+
+.body {
+
 }
