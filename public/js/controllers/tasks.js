@@ -87,7 +87,7 @@
         $scope.logout = function () {
           AuthService.logout()
           .then(function (response) {
-            $window.sessionStorage.removeItem('userInfo');
+            // $window.sessionStorage.removeItem('userInfo');
             $location.path(response.data.path);
           });
         };

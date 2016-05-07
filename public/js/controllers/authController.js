@@ -9,9 +9,9 @@
         $scope.login = function(user) {
           AuthService.login(user.username, user.password)
           .then(function(response) {
-            $window.sessionStorage.setItem('userInfo', JSON.stringify({
-                          username: user.username
-                        }))
+            // $window.sessionStorage.setItem('userInfo', JSON.stringify({
+            //               username: user.username
+            //             }))
             $location.path(response.data.path);
           });
         };
@@ -26,11 +26,16 @@
         $scope.isLoggedIn = AuthService.isLoggedIn();
 
         $scope.logout = function () {
-          AuthService.logout()
-          .then(function (response) {
-            $window.sessionStorage.removeItem('userInfo');
-            $location.path(response.data.path);
-          });
+          // AuthService.logout()
+          // .then(function (response) {
+          //   console.log('in controller'); 
+          //   // $window.sessionStorage.removeItem('userInfo');
+          //   $location.path('/login');
+          // })
+          // .catch(function (err) {
+          //   console.log(err);
+          // });
+          console.log('pls');
         };
       }
     ]);

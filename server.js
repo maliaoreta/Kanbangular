@@ -31,8 +31,10 @@ app.use('/login', login);
 app.use('/api/tasks', isAuthenticated, tasks);
 
 app.get('/logout', (req, res) => {
+  console.log('hellooo');
   req.logout();
-  res.json({path :'/'});
+  res.send('ok');
+  // res.json({path :'/'});
 });
 
 app.get('*', (req, res) => {

@@ -1,7 +1,8 @@
 <div id="header">
   <a href="/">Tasks</a>
   <a href="/login" ng-hide=isLoggedIn>Login</a>
-  <a href="#" ng-click="logout()" ng-show=isLoggedIn>Logout</a>
+  <!-- <a href="#" ng-click="logout()" ng-show=isLoggedIn>Logout</a> -->
+  <button ng-click="logout()" ng-show=isLoggedIn>Logout</button>
   <a href="/register">Register</a>
 </div>
 
