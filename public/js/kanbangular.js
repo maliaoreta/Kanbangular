@@ -24,15 +24,21 @@
           controller: 'AuthController'
         });
     }])
-    .run(['$rootScope', '$http', '$location', function ($rootScope, $http, $location) {
-      $rootScope.isLoggedIn = false;
+    .run(['$rootScope', '$http', '$location', '$window', function ($rootScope, $http, $location, $window) {
+
+      if($window.sessionStorage.getItem('userInfo')) {
+        $rootScope.isLoggedIn = true;
+      } else {
+        $rootScope.isLoggedIn = false;
+      }
 
       $rootScope.logout = function () {
         $http.get('/logout')
         .then(function (response) {
+          $window.sessionStorage.removeItem('userInfo');
           $rootScope.isLoggedIn = false;
           $location.path('/login');
         });
-      }
+      };
     }]);
 })();

@@ -1,0 +1,143 @@
+h1 {
+  font-size: 32px;
+  padding: 10px;
+}
+
+#header {
+  background-color: green;
+  position: static;
+  top: 0;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  height: 60px;
+  align-items: center;
+
+  #title {
+    margin: 0 0 0 10px;
+    text-decoration: none;
+    font-size: 32px;
+  }
+
+  #loginInfo {
+    margin: 0 10px 0 0;
+  }
+}
+
+#topBar {
+  margin: 0 0 0 10px;
+  height: 50px;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  #addTaskButton {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: lighten(blue, 40%);
+    &:hover {
+      background-color: lighten(blue, 20%);
+    }
+  }
+}
+
+#tasks {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  background-color: lighten(grey, 15%);
+  .task-container {
+    flex: 1 0 30%;
+    text-align: center;
+  }
+}
+
+.task-column {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+
+.task {
+  width: 85%;
+  flex: 0 1 250px;
+  border: 1px solid black;
+  text-align: left;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 5px;
+  background-color: darken(white, 10%);
+  display: flex;
+  flex-flow: column nowrap;
+  .todoTask {
+    text-align: left;
+    display: flex;
+    flex-flow: column nowrap;
+    flex: 1 1 auto;
+    height: 100%;
+  }
+
+  .inProgressTask {
+
+  }
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.arrows {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  .disabledButton {
+    color: grey;
+  }
+}
+
+.buttons {
+  display: flex;
+  flex-flow: 0 0 auto;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+  .edit {
+    margin-right: 10px;
+  }
+  .delete {
+    color: red;
+    padding: 5px;
+  }
+}
+
+.body {
+  .title {
+    font-size: 22px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid black;
+  }
+  .description {
+    font-size: 15px;
+    margin-bottom: 10px;
+  }
+}
+
+.todoTaskForm {
+  display: flex;
+  flex-flow: column nowrap;
+
+  textarea {
+    max-width: 100%;
+  }
+
+  input[type="text"] {
+    transition: box-shadow 0.3s, border 0.3s;
+  }
+
+  input[type="text"]:focus {
+    border: solid 1px #707070;
+  }
+
+  button {
+    margin-bottom: 10px;
+  }
+}

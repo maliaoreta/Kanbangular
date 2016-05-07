@@ -1,5 +1,5 @@
 <div id="header">
-  <a id="title" href="/">Tasks</a>
+  <a id="title" href="/">Kanbangular</a>
   <div id="loginInfo">
     <a href="/login" ng-hide=isLoggedIn>Login</a>
     <a href="#" ng-click="logout()" ng-show=isLoggedIn>Logout</a>
@@ -7,25 +7,49 @@
   </div>
 </div>
 
-<div id="tasks">
+<div id="topBar">
+  <div ng-hide="toggleAddTask">
+    <button id="addTaskButton" ng-click="toggleAddTask = !toggleAddTask">Add Task</button>
+  </div>
 
+  <div id"addTask" ng-show="toggleAddTask">
+    <input type="text" ng-model="newTask.title" placeholder="title" required></input>
+    <input type="text" ng-model="newTask.description" placeholder="description" required></input>
+
+    <select  ng-model="newTask.status" required>
+      <option value="">---Please select---</option>
+      <option value="Todo">Todo</option>
+      <option value="In-Progress">In-Progress</option>
+      <option value="Done">Done</option>
+    </select>
+
+    <button ng-click="postTask(newTask); toggleAddTask = !toggleAddTask">Submit</button>
+    <button ng-click="toggleAddTask = !toggleAddTask">Exit</button>
+  </div>
+</div>
+
+<div id="tasks">
   <div class="task-container">
+
   <h1>Todo</h1>
   <div class="task-column">
     <div class="task" ng-repeat="todo in taskList | statusFilter:'Todo'">
         <div class="todoTask" ng-hide="toggleForm">
-          <div class="body">
-            <div>title: {{todo.title}}</div>
-            <div> description: {{todo.description}}</div>
-            <div>status: {{ todo.status }}</div>
-          </div>
 
           <div class="buttons">
-            <button ng-click="toggleForm = !toggleForm">Edit</button>
-            <button ng-click="deleteTask(todo)">Delete</button>
+            <button class="edit" ng-click="toggleForm = !toggleForm"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></button>
+            <button class="delete" ng-click="deleteTask(todo)"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></button>
           </div>
 
+          <div class="body">
+            <h2 class="title">{{todo.title}}</h2>
+            <div class="description">{{todo.description}}</div>
+          </div>
+
+          <div class="spacer"></div>
+
           <div class="arrows">
+            <button class="disabledButton"><</button>
             <button ng-click="move(todo, 'right')">></button>
           </div>
         </div>
@@ -33,7 +57,7 @@
         <div class='todoTaskForm' ng-show="toggleForm">
           <input type="text" placeholder="title" ng-model="updatedFields.title"></input>
           <br>
-          <input type="text" placeholder="description" ng-model="updatedFields.description"></input>
+          <textarea placeholder="description" ng-model="updatedFields.description"></textarea>
           <br>
           <button ng-click="edit(todo, updatedFields); toggleForm = !toggleForm">Submit</button>
           <button ng-click="toggleForm = !toggleForm">Exit</button>
@@ -113,7 +137,3 @@
   </div>
 </div>
 
-<input type="text" ng-model="newTask.title"></input>
-<input type="text" ng-model="newTask.description"></input>
-<input type="text" ng-model="newTask.status"></input>
-<button ng-click="postTask(newTask)">Submit</button>
