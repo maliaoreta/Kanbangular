@@ -9,22 +9,18 @@
       'AuthService',
       function ($scope, $window, $location, TasksService, AuthService) {
 
-        // if (!AuthService.isLoggedIn()) {
-        //   $location.path('/login');
-        // }
-
         $scope.taskList = [];
 
         TasksService.getTasks().then(function(response) {
-          // if (response.data.path) {
-          //   $location.path(response.data.path);
-          // }
-          // else {
+          if (response.data.path) {
+            $location.path(response.data.path);
+          }
+          else {
             if(response.data.taskList) {
 
               $scope.taskList = response.data.taskList;
             }
-          // }
+          }
         });
 
         $scope.postTask = function(newTask) {

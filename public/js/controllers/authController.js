@@ -10,11 +10,7 @@
         $scope.login = function(user) {
           AuthService.login(user.username, user.password)
           .then(function(response) {
-            $window.sessionStorage.setItem('userInfo', JSON.stringify({
-                          username: user.username
-                        }));
-            console.log('LOGIN', $window.sessionStorage);
-            console.log('IS LOGGED IN', AuthService.isLoggedIn());
+            $rootScope.isLoggedIn = true;
             $location.path(response.data.path);
           });
         };
@@ -23,21 +19,6 @@
           AuthService.register(user.username, user.password)
           .then(function(response) {
             $location.path(response.data.path);
-          });
-        };
-
-        $rootScope.isLoggedIn = AuthService.isLoggedIn();
-
-        $rootScope.logout = function () {
-          AuthService.logout()
-          .then(function (response) {
-            $window.sessionStorage.removeItem('userInfo');
-            console.log("IS LOGGED IN", AuthService.isLoggedIn());
-            console.log('LOGOUT', $window.sessionStorage);
-            $location.path('/login');
-          })
-          .catch(function (err) {
-            console.log(err);
           });
         };
       }

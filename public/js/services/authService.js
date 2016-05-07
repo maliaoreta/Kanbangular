@@ -13,14 +13,6 @@
         password: password
       });
     };
-
-    this.isLoggedIn = function () {
-      return ($window.sessionStorage.userInfo) ? true : false;
-    };
-
-    this.logout = function () {
-      return $http.get('/logout');
-    };
   }
 
   angular.module('kanbangular')

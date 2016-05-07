@@ -14,11 +14,6 @@
         .when('/', {
           templateUrl: 'views/index.html',
           controller: 'TasksController',
-          resolve: {
-            loggedin: function() {
-              return false;
-            }
-          }
         })
         .when('/login', {
           templateUrl: 'views/login.html',
@@ -29,7 +24,15 @@
           controller: 'AuthController'
         });
     }])
-    .run([function () {
+    .run(['$rootScope', '$http', '$location', function ($rootScope, $http, $location) {
+      $rootScope.isLoggedIn = false;
 
+      $rootScope.logout = function () {
+        $http.get('/logout')
+        .then(function (response) {
+          $rootScope.isLoggedIn = false;
+          $location.path('/login');
+        });
+      }
     }]);
 })();
