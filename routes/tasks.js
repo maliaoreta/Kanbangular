@@ -35,41 +35,14 @@ router.route('/:id')
     });
   })
   .put((req, res) => {
-    var updatedStatus;
-
-    if (req.body.direction === 'right') {
-
-      switch (req.body.currStatus) {
-        case 'Todo':
-          updatedStatus = 'In-Progress';
-          break;
-        case 'In-Progress':
-          updatedStatus = 'Done';
-          break;
-      }
-    }
-    else if (req.body.direction === 'left') {
-
-     switch (req.body.currStatus) {
-        case 'Done':
-          updatedStatus = 'In-Progress';
-          break;
-        case 'In-Progress':
-          updatedStatus = 'Todo';
-          break;
-      } 
-    }
-
-
-    Tasks.update({
-      status: updatedStatus
-    }, {
+    console.log(req.params.id);
+    Tasks.update(req.body.updatedFields, {
       where: {
         id: req.params.id
       }
     })
     .then(() => {
-      res.json({updatedStatus: updatedStatus});
+      res.json({success: true});
     });
   });
 

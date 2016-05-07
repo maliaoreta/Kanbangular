@@ -15,7 +15,7 @@
             $scope.isLoggedIn = false;
             $location.path(response.data.path);
           });
-        }
+        };
 
         $scope.register = function(user) {
           AuthService.register(user.username, user.password)
