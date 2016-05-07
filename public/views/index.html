@@ -1,86 +1,116 @@
 <div id="header">
-  <a href="/">Tasks</a>
-  <a href="/login" ng-hide=isLoggedIn>Login</a>
-  <a href="#" ng-click="logout()" ng-show=isLoggedIn>Logout</a>
-  <!-- <button ng-click="logout()" ng-show=isLoggedIn>Logout</button> -->
-  <a href="/register">Register</a>
+  <a id="title" href="/">Tasks</a>
+  <div id="loginInfo">
+    <a href="/login" ng-hide=isLoggedIn>Login</a>
+    <a href="#" ng-click="logout()" ng-show=isLoggedIn>Logout</a>
+    <a href="/register">Register</a>
+  </div>
 </div>
 
 <div id="tasks">
 
   <div class="task-container">
   <h1>Todo</h1>
-  <div class="task-column" id="todo" ng-repeat="todo in taskList | statusFilter:'Todo'">
-    <div class="task">
-      <div class="todoTask" ng-hide="toggleForm">
-        <div>title: {{todo.title}}</div>
-        <div> description: {{todo.description}}</div>
-        <div>status: {{ todo.status }}</div>
-        <button ng-click="toggleForm = !toggleForm">Edit</button>
-        <button ng-click="deleteTask(todo)">Delete</button>
-        <button ng-click="move(todo, 'right')">></button>
-      </div>
+  <div class="task-column">
+    <div class="task" ng-repeat="todo in taskList | statusFilter:'Todo'">
+        <div class="todoTask" ng-hide="toggleForm">
+          <div class="body">
+            <div>title: {{todo.title}}</div>
+            <div> description: {{todo.description}}</div>
+            <div>status: {{ todo.status }}</div>
+          </div>
 
-      <div class='todoTaskForm' ng-show="toggleForm">
-        <input type="text" placeholder="title" ng-model="updatedFields.title"></input>
-        <br>
-        <input type="text" placeholder="description" ng-model="updatedFields.description"></input>
-        <br>
-        <button ng-click="edit(todo, updatedFields); toggleForm = !toggleForm">Submit</button>
-        <button ng-click="toggleForm = !toggleForm">Exit</button>
+          <div class="buttons">
+            <button ng-click="toggleForm = !toggleForm">Edit</button>
+            <button ng-click="deleteTask(todo)">Delete</button>
+          </div>
+
+          <div class="arrows">
+            <button ng-click="move(todo, 'right')">></button>
+          </div>
+        </div>
+
+        <div class='todoTaskForm' ng-show="toggleForm">
+          <input type="text" placeholder="title" ng-model="updatedFields.title"></input>
+          <br>
+          <input type="text" placeholder="description" ng-model="updatedFields.description"></input>
+          <br>
+          <button ng-click="edit(todo, updatedFields); toggleForm = !toggleForm">Submit</button>
+          <button ng-click="toggleForm = !toggleForm">Exit</button>
+        </div>
       </div>
     </div>
-  </div>
   </div>
 
   <div class="task-container">
-  <h1>In-Progress</h1>
-  <div class="task-column" id="inProgress" ng-repeat="inProgress in taskList | statusFilter:'In-Progress'">
-    <div class="task">
-      <div class="inProgressTask" ng-hide="toggleForm">
-        <div>{{inProgress.title}}</div>
-        <div>{{inProgress.description}}</div>
-        <div>status: {{ inProgress.status }}</div>
+    <h1>In-Progress</h1>
+    <div class="task-column">
+      <div class="task" id="inProgress" ng-repeat="inProgress in taskList | statusFilter:'In-Progress'">
+        <div class="inProgressTask" ng-hide="toggleForm">
+          <div class="body">
+            <div>{{inProgress.title}}</div>
+            <div>{{inProgress.description}}</div>
+            <div>status: {{ inProgress.status }}</div>
+          </div>
 
-        <button ng-click="toggleForm = !toggleForm">Edit</button>
-        <button ng-click="deleteTask(inProgress)">Delete</button>
-        <button ng-click="move(inProgress, 'left')"><</button>
-        <button ng-click="move(inProgress, 'right')">></button>
-      </div>
+          <div class="buttons">
+            <button ng-click="toggleForm = !toggleForm">Edit</button>
+            <button ng-click="deleteTask(inProgress)">Delete</button>
+          </div>
 
-      <div class="inProgressTaskForm" ng-show="toggleForm">
-        <input type="text" placeholder="title" ng-model="updatedFields.title"></input>
-        <input type="text" placeholder="description" ng-model="updatedFields.description"></input>
-        <button ng-click="edit(inProgress, updatedFields); toggleForm =! toggleForm">Submit</button>
-        <button ng-click="toggleForm =! toggleForm">Exit</button>
+          <div class="arrows">
+            <button ng-click="move(inProgress, 'left')"><</button>
+            <button ng-click="move(inProgress, 'right')">></button>
+          </div>
+        </div>
+
+        <div class="inProgressTaskForm" ng-show="toggleForm">
+          <div class="body">
+            <input type="text" placeholder="title" ng-model="updatedFields.title"></input>
+            <input type="text" placeholder="description" ng-model="updatedFields.description"></input>
+          </div>
+          <div class="buttons">
+            <button ng-click="edit(inProgress, updatedFields); toggleForm =! toggleForm">Submit</button>
+            <button ng-click="toggleForm =! toggleForm">Exit</button>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
   </div>
 
   <div class="task-container">
-  <h1>Done</h1>
-  <div class="task-column" id="done" ng-repeat="done in taskList | statusFilter:'Done'">
-    <div class="task">
-      <div class="doneTask" ng-hide="toggleForm">
-        <div>{{done.title}}</div>
-        <div>{{done.description}}</div>
-        <div>status: {{done.status}}</div>
-        <button ng-click="toggleForm = !toggleForm">Edit</button>
-        <button ng-click="deleteTask(done)">Delete</button>
-        <button ng-click="move(done, 'left')"><</button>
-      </div>
+    <h1>Done</h1>
+    <div class="task-column">
+      <div class="task" id="done" ng-repeat="done in taskList | statusFilter:'Done'">
+          <div class="doneTask" ng-hide="toggleForm">
+            <div class="body">
+              <div>{{done.title}}</div>
+              <div>{{done.description}}</div>
+              <div>status: {{done.status}}</div>
+            </div>
+            <div class="buttons">
+              <button ng-click="toggleForm = !toggleForm">Edit</button>
+              <button ng-click="deleteTask(done)">Delete</button>
+            </div>
+            <div class="arrows">
+              <button ng-click="move(done, 'left')"><</button>
+            </div>
+          </div>
 
-      <div class="doneTaskForm" ng-show="toggleForm">
-        <input type="text" placeholder="title" ng-model="updatedFields.title"></input>
-        <input type="text" placeholder="description" ng-model="updatedFields.description"></input>
-        <button ng-click="edit(done, updatedFields); toggleForm =! toggleForm">Submit</button>
-        <button ng-click="toggleForm =! toggleForm">Exit</button>
+          <div class="doneTaskForm" ng-show="toggleForm">
+            <div class="body">
+              <input type="text" placeholder="title" ng-model="updatedFields.title"></input>
+              <input type="text" placeholder="description" ng-model="updatedFields.description"></input>
+            </div>
+            <div class="buttons">
+              <button ng-click="edit(done, updatedFields); toggleForm =! toggleForm">Submit</button>
+              <button ng-click="toggleForm =! toggleForm">Exit</button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-  </div>
-
 </div>
 
 <input type="text" ng-model="newTask.title"></input>
