@@ -1,2 +1,126 @@
 @import 'partials/reset';
 @import 'partials/tasks';
+
+
+body {
+  background-image: url('/images/nice_snow.png');
+}
+
+h1 {
+  font-size: 32px;
+  padding: 10px;
+}
+
+#headerLogin {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-end;
+
+  a {
+    flex: 0 1 100%;
+    margin: 1em;
+    margin-bottom: 0em;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.5em;
+    text-decoration: none;
+  }
+}
+
+#loginInput {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-content: center;
+  font-family: 'Open Sans', sans-serif;
+  max-width: 35em;
+  margin: auto;
+  margin-top: 2.5em;
+  background-color: lighten(gray, 30%);
+  height: 25em;
+  border-radius: 1em;
+
+  label {
+    flex: 0 0 50%;
+    margin: 0.5em;
+  }
+  input {
+    flex: 0 0 50%;
+    border-radius: 0.2em;
+    margin: 0.5em;
+    &:focus {
+      border: solid 1px #707070;
+      box-shadow: 0 0 5px 1px #969696;
+    }
+  }
+  button {
+    flex: 0 0 50%;
+    margin: 1em;
+    font-family: 'Open Sans', sans-serif;
+  }
+}
+
+#header {
+  background-color: darken(#C2D4EC, 5%);
+  position: static;
+  top: 0;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  height: 60px;
+  align-items: center;
+
+
+  #title {
+    margin: 0 0 0 10px;
+    text-decoration: none;
+    font-size: 32px;
+  }
+
+  #loginInfo {
+    margin: 0 10px 0 0;
+  }
+}
+
+
+#tasks {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  .task-container {
+    flex: 0 0 30%;
+    text-align: center;
+    margin: 10px;
+  }
+}
+
+.task-column {
+  display: flex;
+  flex-flow: column nowrap;
+  background-color: red;
+  height: 50em;
+  align-items: center;
+  //justify-content: center;
+  border-right: 1px solid black;
+  overflow: scroll;
+}
+
+.task {
+  width: 80%;
+  flex: 0 0 250px;
+  border: 1px solid black;
+  text-align: left;
+  padding: 10px;
+  margin-top: 10px;
+  .todoTask {
+    text-align: left;
+  }
+}
+
+.arrows {
+  display: flex;
+  justify-content: center;
+}
+
+#kanbangularHeader {
+  text-decoration: none;
+}

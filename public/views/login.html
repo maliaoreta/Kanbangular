@@ -1,8 +1,12 @@
-<div id="header">
-  <a href="/">Tasks</a>
+<div id="headerLogin">
+  <a id="kanbangularHeader" href="/">Kanbangular</a>
   <a href='/register'>Register</a>
 </div>
 
-<input type="text" placeholder="username" ng-model="user.username"></input>
-<input type="password" placeholder="password" ng-model="user.password"></input>
-<button ng-click="login(user)">Login</button>
+<div id="loginInput">
+  <label>Username</label>
+  <input type="text" ng-model="user.username"></input>
+  <label>Password</label>
+  <input type="password" ng-model="user.password"></input>
+  <button ng-click="login(user)">Login</button>
+</div>
