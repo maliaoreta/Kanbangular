@@ -6,17 +6,21 @@ const Tasks = require('../models').Task;
 
 router.route('/')
   .get((req, res) => {
-    Tasks.findAll()
+    Tasks.findAll({
+      where: {
+        user_id: req.user.id  
+      }
+    })
     .then((tasks) => {
       res.json({taskList: tasks});
     });
   })
   .post((req, res) => {
-    console.log(req.body);
     Tasks.create({
       title: req.body.title,
       description: req.body.description,
-      status: req.body.status
+      status: req.body.status,
+      user_id: req.user.id
     })
     .then((task) => {
       res.json({newTask: task});
@@ -27,7 +31,8 @@ router.route('/:id')
   .delete((req, res) => {
     Tasks.destroy({
       where: {
-        id: req.params.id
+        id: req.params.id,
+        user_id: req.user.id
       }
     })
     .then(() => {
@@ -35,10 +40,10 @@ router.route('/:id')
     });
   })
   .put((req, res) => {
-    console.log(req.params.id);
     Tasks.update(req.body.updatedFields, {
       where: {
-        id: req.params.id
+        id: req.params.id,
+        user_id: req.user.id
       }
     })
     .then(() => {

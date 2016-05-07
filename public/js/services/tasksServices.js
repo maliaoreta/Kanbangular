@@ -18,7 +18,6 @@
     };
 
     this.edit = function(id, updatedFields) {
-      console.log('EDIT SERVICE', id);
       return $http.put('/api/tasks/' + id, {updatedFields: updatedFields});
     };
   }

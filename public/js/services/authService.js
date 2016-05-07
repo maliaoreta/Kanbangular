@@ -15,12 +15,10 @@
     };
 
     this.isLoggedIn = function () {
-      console.log('userInfo: ', $window.sessionStorage.userInfo);
       return ($window.sessionStorage.userInfo) ? true : false;
     };
 
     this.logout = function () {
-      console.log('service');
       return $http.get('/logout');
     };
   }

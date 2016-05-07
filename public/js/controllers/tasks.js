@@ -9,10 +9,19 @@
       'AuthService',
       function ($scope, $window, $location, TasksService, AuthService) {
 
+        // if (!AuthService.isLoggedIn()) {
+        //   $location.path('/login');
+        // } 
+
         $scope.taskList = [];
 
         TasksService.getTasks().then(function(response) {
-          $scope.taskList = response.data.taskList;
+          if (response.data.path) {
+            $location.path(response.data.path);
+          }
+          else {
+            $scope.taskList = response.data.taskList;
+          }
         });
 
         $scope.postTask = function(newTask) {
@@ -79,7 +88,6 @@
           AuthService.logout()
           .then(function (response) {
             $window.sessionStorage.removeItem('userInfo');
-            $scope.isLoggedIn = false;
             $location.path(response.data.path);
           });
         };

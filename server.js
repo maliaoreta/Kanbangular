@@ -11,6 +11,7 @@ const setUpPassport = require('./passport/passport');
 const tasks = require('./routes/tasks');
 const login = require('./routes/login');
 const register = require('./routes/register');
+const isAuthenticated = require('./middleware/authentication');
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
@@ -27,7 +28,7 @@ setUpPassport();
 
 app.use('/register', register);
 app.use('/login', login);
-app.use('/api/tasks', tasks);
+app.use('/api/tasks', isAuthenticated, tasks);
 
 app.get('/logout', (req, res) => {
   req.logout();

@@ -12,7 +12,6 @@
             $window.sessionStorage.setItem('userInfo', JSON.stringify({
                           username: user.username
                         }))
-            $scope.isLoggedIn = false;
             $location.path(response.data.path);
           });
         };
@@ -30,7 +29,6 @@
           AuthService.logout()
           .then(function (response) {
             $window.sessionStorage.removeItem('userInfo');
-            $scope.isLoggedIn = false;
             $location.path(response.data.path);
           });
         };
