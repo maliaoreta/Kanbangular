@@ -1,3 +1,5 @@
+
+
 h1 {
   font-size: 32px;
   padding: 10px;
@@ -30,15 +32,16 @@ h1 {
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
-  #addTaskButton {
-    padding: 10px;
-    border-radius: 5px;
-    border: none;
-    background-color: lighten(blue, 40%);
-    &:hover {
-      background-color: lighten(blue, 20%);
-    }
-  }
+  // #addTaskButton {
+  //   flex: 0 0 auto;
+  //   padding: 10px;
+  //   border-radius: 5px;
+  //   border: none;
+  //   background-color: lighten(blue, 40%);
+  //   &:hover {
+  //     background-color: lighten(blue, 20%);
+  //   }
+  // }
 }
 
 #tasks {
@@ -47,7 +50,7 @@ h1 {
   justify-content: center;
   background-color: lighten(grey, 15%);
   .task-container {
-    flex: 1 0 30%;
+    flex: 1 0 auto;
     text-align: center;
   }
 }
@@ -56,6 +59,11 @@ h1 {
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
+}
+
+.task-spacer {
+  flex: 0 0 10px;
+  background-color: darken(grey, 13%);
 }
 
 .task {
@@ -93,6 +101,15 @@ h1 {
   .disabledButton {
     color: grey;
   }
+  button {
+    margin: 10px;
+  }
+  // button {
+  //   margin: 10px;
+  //   color: green;
+  //   border: 1px solid green;
+  //   font-weight: bold
+  // }
 }
 
 .buttons {
@@ -145,3 +162,5 @@ h1 {
     margin-bottom: 10px;
   }
 }
+
+
