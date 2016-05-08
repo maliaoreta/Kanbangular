@@ -21,19 +21,20 @@
 <div id="tasks">
 
   <div class="addTask-container" ng-show="toggleAddTask">
+    <button class="postButtons" id="exitButton" ng-click="toggleAddTask = !toggleAddTask"><i class="fa fa-times" aria-hidden="true"></i></button>
+    <div id="addTaskSpace"></div>
     <div class="addTask">
-      <input type="text" ng-model="newTask.title" placeholder="title" required></input>
-      <input type="text" ng-model="newTask.description" placeholder="description" required></input>
+      <input class="addTaskFormElement" type="text" ng-model="newTask.title" placeholder="title" required></input>
+      <input class="addTaskFormElement" type="text" ng-model="newTask.description" placeholder="description" required></input>
 
-      <select  ng-model="newTask.status" required>
+      <select class="addTaskFormElement" ng-model="newTask.status" required>
         <option value="">---Please select---</option>
         <option value="Todo">Todo</option>
         <option value="In-Progress">In-Progress</option>
         <option value="Done">Done</option>
       </select>
 
-      <button class="postButtons" ng-click="postTask(newTask); toggleAddTask = !toggleAddTask">Submit</button>
-      <button class="postButtons" ng-click="toggleAddTask = !toggleAddTask">Exit</button>
+      <button class="postButtons addTaskFormElement" ng-click="postTask(newTask); toggleAddTask = !toggleAddTask">Submit</button>
     </div>
   </div>
 
