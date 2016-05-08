@@ -9,9 +9,9 @@
   <div class="header-spacer"></div>
 
   <div id="loginInfo">
-    <a href="/login" ng-hide=isLoggedIn>Login</a>
-    <a href="#" ng-click="logout()" ng-show=isLoggedIn>Logout</a>
-    <a href="/register">Register</a>
+    <a id="login" href="/login" ng-hide=isLoggedIn>Login</a>
+    <a id="logout" href="#" ng-click="logout()" ng-show=isLoggedIn>Logout</a>
+    <a id="register" href="/register"ng-hide=isLoggedIn>Register</a>
   </div>
 </div>
 
@@ -58,8 +58,10 @@
           <div class="spacer"></div>
 
           <div class="arrows">
-            <button class="disabledButton"><</button>
-            <button ng-click="move(todo, 'right')">></button>
+            <button class="disabledButton" disabled><i class="fa fa-angle-left fa-2x" aria-hidden="true"></i>
+</button>
+            <button ng-click="move(todo, 'right')"><i class="fa fa-angle-right fa-2x" aria-hidden="true"></i>
+</button>
           </div>
         </div>
 
@@ -75,7 +77,7 @@
     </div>
   </div>
 
-  <div class="task-spacer"></div>
+  <!-- <div class="task-spacer"></div> -->
 
   <div class="task-container">
     <h1>In-Progress</h1>
@@ -113,7 +115,7 @@
     </div>
   </div>
 
-  <div class="task-spacer"></div>
+  <!-- <div class="task-spacer"></div> -->
 
   <div class="task-container">
     <h1>Done</h1>
