@@ -7,12 +7,13 @@ h1 {
 
 #header {
   background-color: green;
-  position: static;
+  position: fixed;
   top: 0;
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
   height: 60px;
+  width: 100%;
   align-items: center;
 
   #title {
@@ -47,8 +48,9 @@ h1 {
 #tasks {
   display: flex;
   flex-flow: row nowrap;
-  justify-content: center;
-  background-color: $grey;
+  // justify-content: center;
+  // background-color: $grey;
+  padding-top: 60px;
   .task-container {
     flex: 1 0 auto;
     text-align: center;
@@ -62,20 +64,20 @@ h1 {
 }
 
 .task-spacer {
-  flex: 0 0 10px;
-  background-color: $darkRed;
+  flex: 0 0 5px;
+  background-color: darken($grey, 20%);
 }
 
 .task {
   width: 85%;
   flex: 0 1 250px;
-  border: 1px solid $darkYellow;
+  border: 1px outset $darkYellow;
   box-shadow: 5px 5px 5px #888888;
   text-align: left;
   padding: 10px;
   margin-top: 15px;
   background-color: $lightYellow;
-  color: $lightGreen;
+  color: $darkGray;
   display: flex;
   flex-flow: column nowrap;
   .todoTask {

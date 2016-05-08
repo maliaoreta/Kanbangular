@@ -6,20 +6,20 @@
 // $darkColor: #46554C;
 
 $darkPurple: #151932;
-$lightGreen: #479585;
+$darkGray: #626069;
 $lightRed: #E38464;
-$darkRed: #DD4009;
+$darkRed: #A68B79;
 $neonGreen: #CCEB24;
 
 $grey: #F2F2F3;
 $green: #1FDA9A;
 $red: #EE4B3E;
-$darkYellow: #E9BC1B;
-$lightYellow: #F5EACD;
+$darkYellow: darken(#FCF3E3, 8%);
+$lightYellow: #FCF3E3;
 
 button {
-  color: $lightGreen;
-  border: 1px solid $lightGreen;
+  color: $darkGray;
+  border: 1px solid $darkGray;
   font-weight: bold;
   &:hover {
     border: 1px solid $green;
@@ -29,13 +29,14 @@ button {
 }
 
 body {
-  background-image: url('/images/nice_snow.png');
+  background-color: $grey;
   font-family: 'Open Sans', sans-serif;
 }
 
 h1 {
   font-size: 32px;
   padding: 10px;
+  color: $darkGray;
 }
 
 @import 'modules/tasks';

@@ -1,5 +1,26 @@
 <div id="header">
   <a id="title" href="/">Kanbangular</a>
+  
+  <div id="topBar">
+    <div ng-hide="toggleAddTask">
+      <button id="addTaskButton" ng-click="toggleAddTask = !toggleAddTask">Add Task</button>
+    </div>
+
+    <div id"addTask" ng-show="toggleAddTask">
+      <input type="text" ng-model="newTask.title" placeholder="title" required></input>
+      <input type="text" ng-model="newTask.description" placeholder="description" required></input>
+
+      <select  ng-model="newTask.status" required>
+        <option value="">---Please select---</option>
+        <option value="Todo">Todo</option>
+        <option value="In-Progress">In-Progress</option>
+        <option value="Done">Done</option>
+      </select>
+
+      <button ng-click="postTask(newTask); toggleAddTask = !toggleAddTask">Submit</button>
+      <button ng-click="toggleAddTask = !toggleAddTask">Exit</button>
+    </div>
+  </div>
   <div id="loginInfo">
     <a href="/login" ng-hide=isLoggedIn>Login</a>
     <a href="#" ng-click="logout()" ng-show=isLoggedIn>Logout</a>
@@ -7,26 +28,6 @@
   </div>
 </div>
 
-<div id="topBar">
-  <div ng-hide="toggleAddTask">
-    <button id="addTaskButton" ng-click="toggleAddTask = !toggleAddTask">Add Task</button>
-  </div>
-
-  <div id"addTask" ng-show="toggleAddTask">
-    <input type="text" ng-model="newTask.title" placeholder="title" required></input>
-    <input type="text" ng-model="newTask.description" placeholder="description" required></input>
-
-    <select  ng-model="newTask.status" required>
-      <option value="">---Please select---</option>
-      <option value="Todo">Todo</option>
-      <option value="In-Progress">In-Progress</option>
-      <option value="Done">Done</option>
-    </select>
-
-    <button ng-click="postTask(newTask); toggleAddTask = !toggleAddTask">Submit</button>
-    <button ng-click="toggleAddTask = !toggleAddTask">Exit</button>
-  </div>
-</div>
 
 <div id="tasks">
   <div class="task-container">
