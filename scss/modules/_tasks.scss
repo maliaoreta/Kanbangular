@@ -70,7 +70,7 @@
   padding: 60px 0 60px 0;
 
   .task-container {
-    flex: 1 0 auto;
+    flex: 1 0 33%;
     text-align: center;
     margin-top: 10px;
   }
@@ -124,16 +124,16 @@
   align-items: center;
 }
 
-.task-spacer {
-  flex: 0 0 5px;
-  background-color: darken($grey, 20%);
-}
+// .task-spacer {
+//   flex: 0 0 5px;
+//   background-color: darken($grey, 20%);
+// }
 
 .task {
   width: 85%;
-  flex: 0 1 250px;
+  flex: 0 0 300px;
   border: 1px outset $darkYellow;
-  //box-shadow: 5px 5px 5px #888888;
+  box-shadow: 5px 5px 5px #888888;
   text-align: left;
   padding: 10px;
   margin-top: 15px;
@@ -200,16 +200,18 @@
 .todoTaskForm {
   display: flex;
   flex-flow: column nowrap;
+  flex: 1 1 auto;
 
   textarea {
-    flex: 1 1 30%;
-    height: 8em;
+    flex: 1 1 auto;
+    height: 100%;
     resize: none;
+    margin-bottom: 10px;
   }
 
   input[type="text"] {
-    flex: 0 0 10%;
-    transition: box-shadow 0.3s, border 0.3s;
+    flex: 0 0 auto ;
+    margin-bottom: 10px;
   }
 
   input[type="text"]:focus {
@@ -217,8 +219,8 @@
   }
 
   button {
-    flex: 1 1 30%;
     padding: 10px;
+    flex: 0 0 auto;
     margin-bottom: 10px;
   }
 }

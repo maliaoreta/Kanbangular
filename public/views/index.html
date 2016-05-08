@@ -67,9 +67,7 @@
 
         <div class='todoTaskForm' ng-show="toggleForm">
           <input type="text" placeholder="title" ng-model="updatedFields.title"></input>
-          <br>
           <textarea placeholder="description" ng-model="updatedFields.description"></textarea>
-          <br>
           <button ng-click="edit(todo, updatedFields); toggleForm = !toggleForm">Submit</button>
           <button ng-click="toggleForm = !toggleForm">Exit</button>
         </div>
