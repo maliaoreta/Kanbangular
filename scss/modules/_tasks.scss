@@ -59,6 +59,28 @@
   }
 }
 
+#addTaskButton {
+  background-color: $teal;
+  border-color: $teal;
+  border-radius: 2px; 
+  color: white;
+
+  &:hover {
+    background-color: $darkTeal;
+  }
+}
+
+.postButtons {
+  background-color: $teal;
+  border-color: $darkTeal;
+  color: white;
+
+  &:hover {
+    background-color: $darkTeal;
+    border-color: darken($darkTeal, 5%);
+  }
+}
+
 .task-column {
   display: flex;
   flex-flow: column nowrap;

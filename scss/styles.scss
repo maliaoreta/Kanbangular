@@ -5,6 +5,8 @@
 // $earthColor: #E7BB77;
 // $darkColor: #46554C;
 
+$lightTan: lighten(#C2A892, 20%);
+$tan: darken($lightTan, 5%);
 $header: #ACCEC0;
 $teal: rgb(97,166,171);
 $darkTeal: darken($teal, 5%);
@@ -22,12 +24,12 @@ $lightYellow: #FCF3E3;
 
 button {
   color: $darkGray;
-  border: 1px solid $darkGray;
-  font-weight: bold;
-  // background-color: $teal;
+  font-weight:bold;
+  border: 1px solid $tan;
+  background-color: $lightTan;
   &:hover {
-    border: 1px solid $green;
-    background-color: $green;
+    border: 1px solid $tan;
+    background-color: darken($tan, 5%);
     color: white;
   }
 }
