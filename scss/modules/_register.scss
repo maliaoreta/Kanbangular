@@ -2,11 +2,10 @@
   display: flex;
   flex-flow: row wrap;
   margin: 1em;
-  padding: 1em;
+  font-size: 1.5em;
 
   a {
     flex: 0 0 100%;
-    margin: 0.5em;
     font-family: 'Open Sans', sans-serif;
     font-size: 1.5em;
     text-decoration: none;
@@ -19,13 +18,20 @@
   }
 }
 
+#registerTitle {
+  text-align: center;
+  margin: 0.5em;
+  font-size: 1.5em;
+  color: lighten(black, 40%);  
+}
+
 #registerInput {
   display: flex;
   flex-flow: column nowrap;
   font-family: 'Open Sans', sans-serif;
   max-width: 35em;
   margin: auto;
-  background-color: rgba(160, 160, 160, 0.5);
+  background-color: rgba(160, 160, 160, 0.3);
   border: outset 2px lightgray;
   height: 25em;
   border-radius: 1em;
