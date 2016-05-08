@@ -22,6 +22,11 @@ $red: #EE4B3E;
 $darkYellow: darken(#FCF3E3, 8%);
 $lightYellow: #FCF3E3;
 
+a {
+  text-decoration: none;
+  color:#551A8B ;
+}
+
 button {
   color: $darkGray;
   font-weight:bold;

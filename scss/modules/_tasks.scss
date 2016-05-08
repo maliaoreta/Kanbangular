@@ -1,6 +1,5 @@
 #header {
   background-color: $header;
-  border: 2px outset $header;
   position: fixed;
   display: flex;
   flex-flow: row nowrap;
@@ -23,7 +22,45 @@
   }
 
   #loginInfo {
-    margin: 0 10px 0 0;
+    flex: 0 0 20%;
+    height: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: flex-end;
+    #login {
+      flex: 0 0 auto;
+      height: 100%;
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: center;
+      padding: 0 10px 0 10px;
+      &:hover {
+        background-color: $teal;
+      }
+    }
+    #logout {
+      flex: 0 0 auto;
+      height: 100%;
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: center;
+      padding: 0 10px 0 10px;
+      &:hover {
+        background-color: $teal;
+      }
+    }
+    #register {
+      flex: 0 0 auto;
+      height: 100%;
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: center;
+      padding: 0 10px 0 10px;
+      &:hover {
+        background-color: $teal;
+      }
+    }
   }
 }
 
@@ -68,7 +105,7 @@
 #addTaskButton {
   background-color: $teal;
   border-color: $teal;
-  border-radius: 2px; 
+  border-radius: 2px;
   color: white;
 
   &:hover {
@@ -138,9 +175,11 @@
   flex-flow: row nowrap;
   justify-content: center;
   .disabledButton {
-    color: grey;
+    background-color: lighten(grey, 10%);
+    color: lighten(grey, 20%);
   }
   button {
+    padding: 0 10px 0 10px;
     margin: 10px;
   }
 }
@@ -176,7 +215,8 @@
 
   textarea {
     flex: 1 1 30%;
-    resize: vertical;
+    height: 8em;
+    resize: none;
   }
 
   input[type="text"] {
