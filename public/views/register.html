@@ -1,6 +1,11 @@
 <div id="kanbangularHeader">
-  <a href="/">Kanbangular</a>
-  <a href='/logout' ng-click="logout()" ng-show="isLoggedIn">Logout</a>
+  <div class="header">
+    <a href="/">Kanbangular</a>
+  </div>
+  <div id="headerSpace"></div>
+  <div class="header">
+    <a id="logoutLink" href='/logout' ng-click="logout()" ng-show="isLoggedIn">Logout</a>
+  </div>
 </div>
 
 <div id="registerTitle">
