@@ -77,21 +77,27 @@
 
   .addTask-container {
     background-color: rgba(160, 160, 160, .8);
-    width: 50%;
+    width: 41%;
     height: 50%;
     position: fixed;
-    left: 25%;
+    left: 28.5%;
     top: 25%;
     border-radius: 10px;
 
     display: flex;
     flex-flow: column nowrap;
-    justify-content:center;
     align-items:center;
     .addTask {
       display: flex;
       flex-flow: column nowrap;
       width: 70%;
+
+      .addTaskFormElement {
+        margin: 0.5em;
+        height: 2em;
+        border-radius: 5px;
+        padding: 3px;
+      }
     }
   }
 }
@@ -116,6 +122,12 @@
     background-color: $darkTeal;
     border-color: darken($darkTeal, 5%);
   }
+}
+
+#exitButton {
+ flex: 0 0 auto;
+ align-self: flex-end;
+ margin: 1em 1em 3em; 
 }
 
 .task-column {
