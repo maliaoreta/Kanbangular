@@ -1,13 +1,29 @@
 @import 'partials/reset';
 
-$primaryColor: green;
+// $lightGreen: #9CE1B0;
+// $darkGreen: #77B484;
+// $earthColor: #E7BB77;
+// $darkColor: #46554C;
+
+$darkPurple: #151932;
+$lightGreen: #479585;
+$lightRed: #E38464;
+$darkRed: #DD4009;
+$neonGreen: #CCEB24;
+
+$grey: #F2F2F3;
+$green: #1FDA9A;
+$red: #EE4B3E;
+$darkYellow: #E9BC1B;
+$lightYellow: #F5EACD;
 
 button {
-  color: green;
-  border: 1px solid green;
+  color: $lightGreen;
+  border: 1px solid $lightGreen;
   font-weight: bold;
   &:hover {
-    background-color: green;
+    border: 1px solid $green;
+    background-color: $green;
     color: white;
   }
 }
@@ -23,4 +39,4 @@ h1 {
 }
 
 @import 'modules/tasks';
-@import '/modules/login';
+@import 'modules/login';

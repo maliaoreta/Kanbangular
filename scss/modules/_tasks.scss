@@ -48,7 +48,7 @@ h1 {
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
-  background-color: lighten(grey, 15%);
+  background-color: $grey;
   .task-container {
     flex: 1 0 auto;
     text-align: center;
@@ -63,18 +63,19 @@ h1 {
 
 .task-spacer {
   flex: 0 0 10px;
-  background-color: darken(grey, 13%);
+  background-color: $darkRed;
 }
 
 .task {
   width: 85%;
   flex: 0 1 250px;
-  border: 1px solid black;
+  border: 1px solid $darkYellow;
+  box-shadow: 5px 5px 5px #888888;
   text-align: left;
   padding: 10px;
-  margin-top: 10px;
-  border-radius: 5px;
-  background-color: darken(white, 10%);
+  margin-top: 15px;
+  background-color: $lightYellow;
+  color: $lightGreen;
   display: flex;
   flex-flow: column nowrap;
   .todoTask {
@@ -121,7 +122,6 @@ h1 {
     margin-right: 10px;
   }
   .delete {
-    color: red;
     padding: 5px;
   }
 }
