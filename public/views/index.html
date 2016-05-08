@@ -1,12 +1,27 @@
 <div id="header">
-  <a id="title" href="/">Kanbangular</a>
-  
-  <div id="topBar">
-    <div ng-hide="toggleAddTask">
-      <button id="addTaskButton" ng-click="toggleAddTask = !toggleAddTask">Add Task</button>
-    </div>
+  <a id="title" href="/"><h1>Kanbangular</h1></a>
 
-    <div id"addTask" ng-show="toggleAddTask">
+  <div ng-hide="toggleAddTask">
+    <button id="addTaskButton" ng-click="toggleAddTask = !toggleAddTask">Add Task</button>
+  </div>
+
+
+  <div class="header-spacer"></div>
+
+  <div id="loginInfo">
+    <a href="/login" ng-hide=isLoggedIn>Login</a>
+    <a href="#" ng-click="logout()" ng-show=isLoggedIn>Logout</a>
+    <a href="/register">Register</a>
+  </div>
+</div>
+
+
+
+
+<div id="tasks">
+
+  <div class="addTask-container" ng-show="toggleAddTask">
+    <div class="addTask">
       <input type="text" ng-model="newTask.title" placeholder="title" required></input>
       <input type="text" ng-model="newTask.description" placeholder="description" required></input>
 
@@ -21,15 +36,8 @@
       <button ng-click="toggleAddTask = !toggleAddTask">Exit</button>
     </div>
   </div>
-  <div id="loginInfo">
-    <a href="/login" ng-hide=isLoggedIn>Login</a>
-    <a href="#" ng-click="logout()" ng-show=isLoggedIn>Logout</a>
-    <a href="/register">Register</a>
-  </div>
-</div>
 
 
-<div id="tasks">
   <div class="task-container">
 
   <h1>Todo</h1>

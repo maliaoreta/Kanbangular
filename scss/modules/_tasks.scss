@@ -1,25 +1,24 @@
-
-
-h1 {
-  font-size: 32px;
-  padding: 10px;
-}
-
 #header {
   background-color: green;
   position: fixed;
-  top: 0;
   display: flex;
   flex-flow: row nowrap;
-  justify-content: space-between;
   height: 60px;
   width: 100%;
   align-items: center;
 
+  .header-spacer {
+    flex: 1 1 auto;
+  }
+
+  #addTaskButton {
+    padding: 5px;
+    margin-left: 10px;
+  }
+
   #title {
     margin: 0 0 0 10px;
     text-decoration: none;
-    font-size: 32px;
   }
 
   #loginInfo {
@@ -27,33 +26,35 @@ h1 {
   }
 }
 
-#topBar {
-  margin: 0 0 0 10px;
-  height: 50px;
-  display: flex;
-  flex-flow: row nowrap;
-  align-items: center;
-  // #addTaskButton {
-  //   flex: 0 0 auto;
-  //   padding: 10px;
-  //   border-radius: 5px;
-  //   border: none;
-  //   background-color: lighten(blue, 40%);
-  //   &:hover {
-  //     background-color: lighten(blue, 20%);
-  //   }
-  // }
-}
-
 #tasks {
   display: flex;
   flex-flow: row nowrap;
-  // justify-content: center;
-  // background-color: $grey;
-  padding-top: 60px;
+  padding: 60px 0 60px 0;
+
   .task-container {
     flex: 1 0 auto;
     text-align: center;
+    margin-top: 10px;
+  }
+
+  .addTask-container {
+    background-color: rgba(160, 160, 160, .8);
+    width: 50%;
+    height: 50%;
+    position: fixed;
+    left: 25%;
+    top: 25%;
+    border-radius: 10px;
+
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content:center;
+    align-items:center;
+    .addTask {
+      display: flex;
+      flex-flow: column nowrap;
+      width: 70%;
+    }
   }
 }
 
@@ -72,7 +73,7 @@ h1 {
   width: 85%;
   flex: 0 1 250px;
   border: 1px outset $darkYellow;
-  box-shadow: 5px 5px 5px #888888;
+  //box-shadow: 5px 5px 5px #888888;
   text-align: left;
   padding: 10px;
   margin-top: 15px;
@@ -107,12 +108,6 @@ h1 {
   button {
     margin: 10px;
   }
-  // button {
-  //   margin: 10px;
-  //   color: green;
-  //   border: 1px solid green;
-  //   font-weight: bold
-  // }
 }
 
 .buttons {
