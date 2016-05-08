@@ -1,15 +1,28 @@
 @import 'partials/reset';
-@import 'partials/tasks';
 
+$primaryColor: green;
+
+button {
+  color: green;
+  border: 1px solid green;
+  font-weight: bold;
+  &:hover {
+    background-color: green;
+    color: white;
+  }
+}
 
 body {
   background-image: url('/images/nice_snow.png');
+  font-family: 'Open Sans', sans-serif;
 }
 
 h1 {
   font-size: 32px;
   padding: 10px;
 }
+
+@import 'modules/tasks';
 
 #headerLogin {
   display: flex;
@@ -83,70 +96,4 @@ h1 {
     border-radius: 5px;
     height: 2em;
   }
-}
-
-#header {
-  background-color: darken(#C2D4EC, 5%);
-  position: static;
-  top: 0;
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
-  height: 60px;
-  align-items: center;
-
-
-  #title {
-    margin: 0 0 0 10px;
-    text-decoration: none;
-    font-size: 32px;
-  }
-
-  #loginInfo {
-    margin: 0 10px 0 0;
-  }
-}
-
-
-#tasks {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: center;
-  .task-container {
-    flex: 0 0 30%;
-    text-align: center;
-    margin: 10px;
-  }
-}
-
-.task-column {
-  display: flex;
-  flex-flow: column nowrap;
-  background-color: red;
-  height: 50em;
-  align-items: center;
-  //justify-content: center;
-  border-right: 1px solid black;
-  overflow: scroll;
-}
-
-.task {
-  width: 80%;
-  flex: 0 0 250px;
-  border: 1px solid black;
-  text-align: left;
-  padding: 10px;
-  margin-top: 10px;
-  .todoTask {
-    text-align: left;
-  }
-}
-
-.arrows {
-  display: flex;
-  justify-content: center;
-}
-
-#kanbangularHeader {
-  text-decoration: none;
 }
