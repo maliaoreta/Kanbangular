@@ -1,9 +1,12 @@
-#headerLogin {
+#kanbangularHeader {
   display: flex;
   flex-flow: row wrap;
+  margin: 1em;
+  padding: 1em;
 
   a {
-    flex: 0 0 auto;
+    flex: 0 0 100%;
+    margin: 0.5em;
     font-family: 'Open Sans', sans-serif;
     font-size: 1.5em;
     text-decoration: none;
@@ -16,7 +19,7 @@
   }
 }
 
-#loginInput {
+#registerInput {
   display: flex;
   flex-flow: column nowrap;
   font-family: 'Open Sans', sans-serif;
@@ -27,7 +30,7 @@
   height: 25em;
   border-radius: 1em;
 
-  #register {
+  #login {
     color: darken(gray, 20%);
     flex: 0 0 auto;
     padding: 1em;
@@ -35,6 +38,7 @@
     a {
       text-decoration: none;
       color: darken(gray, 20%);
+      margin: 1px;
 
       &:hover {
         font-size: 1.05em;
