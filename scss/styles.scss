@@ -5,6 +5,9 @@
 // $earthColor: #E7BB77;
 // $darkColor: #46554C;
 
+$header: #ACCEC0;
+$teal: rgb(97,166,171);
+$darkTeal: darken($teal, 5%);
 $darkPurple: #151932;
 $darkGray: #626069;
 $lightRed: #E38464;
@@ -21,6 +24,7 @@ button {
   color: $darkGray;
   border: 1px solid $darkGray;
   font-weight: bold;
+  // background-color: $teal;
   &:hover {
     border: 1px solid $green;
     background-color: $green;

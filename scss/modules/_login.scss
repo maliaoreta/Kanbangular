@@ -31,8 +31,8 @@
   font-family: 'Open Sans', sans-serif;
   max-width: 35em;
   margin: auto;
-  background-color: rgba(160, 160, 160, 0.3);
-  border: outset 2px lightgray;
+  background-color: rgba(172,206,192, 0.5);
+  border: outset 2px lighten(rgb(172,206,192), 10%);
   height: 25em;
   border-radius: 1em;
 
@@ -72,15 +72,15 @@
   button {
     margin: 1em;
     font-family: 'Open Sans', sans-serif;
-    background-color: lightsteelblue;
-    border: outset 2px lightsteelblue;
+    background-color: $teal;
+    border: outset 2px $teal;
     border-radius: 5px;
     height: 3em;
     color: white;
 
     &:hover {
-      border: outset 2px darken(lightsteelblue, 5%);
-      background-color: darken(lightsteelblue, 5%);
+      border: outset 2px $darkTeal;
+      background-color: $darkTeal;
     }
   }
 }

@@ -1,5 +1,6 @@
 #header {
-  background-color: green;
+  background-color: $header;
+  border: 2px outset $header;
   position: fixed;
   display: flex;
   flex-flow: row nowrap;
