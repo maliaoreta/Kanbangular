@@ -30,6 +30,9 @@
             newTask.title = '';
             newTask.description = '';
             newTask.status = '';
+          })
+          .catch(function(response) {
+            console.log("POST", response);
           });
         };
 

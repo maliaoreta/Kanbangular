@@ -24,7 +24,7 @@ router.route('/')
   })
   .post((req, res) => {
     let status = req.body.status;
-    if(status !== 'Todo' || status !== 'In-Progress' || status !== 'Done') {
+    if(status !== 'Todo' && status !== 'In-Progress' && status !== 'Done') {
       return res.status(400).json({
         messages: {
           status: "Bad Status"
