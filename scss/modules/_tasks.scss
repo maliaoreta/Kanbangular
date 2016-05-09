@@ -127,7 +127,7 @@
 #exitButton {
  flex: 0 0 auto;
  align-self: flex-end;
- margin: 1em 1em 3em; 
+ margin: 1em 1em 3em;
 }
 
 .task-column {
@@ -153,16 +153,12 @@
   color: $darkGray;
   display: flex;
   flex-flow: column nowrap;
-  .todoTask {
+  .taskDetails {
     text-align: left;
     display: flex;
     flex-flow: column nowrap;
     flex: 1 1 auto;
     height: 100%;
-  }
-
-  .inProgressTask {
-
   }
 }
 
@@ -209,7 +205,7 @@
   }
 }
 
-.todoTaskForm {
+.taskForm {
   display: flex;
   flex-flow: column nowrap;
   flex: 1 1 auto;
