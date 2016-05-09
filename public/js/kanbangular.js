@@ -22,6 +22,9 @@
         .when('/register', {
           templateUrl: 'views/register.html',
           controller: 'AuthController'
+        })
+        .otherwise({
+          templateUrl: 'views/404.html'
         });
     }])
     .run(['$rootScope', '$http', '$location', '$window', function ($rootScope, $http, $location, $window) {
