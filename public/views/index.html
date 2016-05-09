@@ -67,8 +67,8 @@
         </div>
 
         <div class='taskForm' ng-show="toggleForm">
-          <input type="text" placeholder="title" ng-model="updatedFields.title"></input>
-          <textarea placeholder="description" ng-model="updatedFields.description"></textarea>
+          <input type="text" ng-model="updatedFields.title" ng-init="updatedFields.title=todo.title"></input>
+          <textarea ng-model="updatedFields.description" ng-init="updatedFields.description=todo.description"></textarea>
           <button ng-click="edit(todo, updatedFields); toggleForm = !toggleForm">Submit</button>
           <button ng-click="toggleForm = !toggleForm">Exit</button>
         </div>
@@ -104,8 +104,8 @@
 
 
         <div class='taskForm' ng-show="toggleForm">
-          <input type="text" placeholder="title" ng-model="updatedFields.title"></input>
-          <textarea placeholder="description" ng-model="updatedFields.description"></textarea>
+          <input type="text" ng-model="updatedFields.title" ng-init="updatedFields.title=inProgress.title"></input>
+          <textarea ng-model="updatedFields.description" ng-init="updatedFields.description=inProgress.description"></textarea>
           <button ng-click="edit(inProgress, updatedFields); toggleForm = !toggleForm">Submit</button>
           <button ng-click="toggleForm = !toggleForm">Exit</button>
         </div>
@@ -141,8 +141,8 @@
         </div>
 
           <div class='taskForm' ng-show="toggleForm">
-            <input type="text" placeholder="title" ng-model="updatedFields.title"></input>
-            <textarea placeholder="description" ng-model="updatedFields.description"></textarea>
+            <input type="text" ng-model="updatedFields.title" ng-init="updatedFields.title=done.title"></input>
+            <textarea ng-model="updatedFields.description" ng-init="updatedFields.description=done.description"></textarea>
             <button ng-click="edit(done, updatedFields); toggleForm = !toggleForm">Submit</button>
             <button ng-click="toggleForm = !toggleForm">Exit</button>
           </div>
