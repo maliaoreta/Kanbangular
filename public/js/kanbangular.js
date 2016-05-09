@@ -3,7 +3,30 @@
   angular.module('kanbangular', ['ngRoute']);
 
   var kanbangular = angular.module('kanbangular');
-    kanbangular.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
+
+    kanbangular.factory('ErrorHttpInterceptor', ['$q', '$location', function($q, $location) {
+      return  {
+        'response': function(response) {
+          console.log("SUCCESS");
+          return response;
+        },
+        'responseError': function(response) {
+            console.log('ERROR');
+            if(response.status === 400) {
+              $location.path('/404');
+            }
+            return $q.reject(response);
+          }
+        };
+    }]);
+
+    kanbangular.config([
+      '$routeProvider',
+      '$locationProvider',
+      '$httpProvider',
+      function ($routeProvider, $locationProvider, $httpProvider) {
+
+      $httpProvider.interceptors.push('ErrorHttpInterceptor');
 
       $locationProvider.html5Mode({
         enabled: true,
@@ -26,6 +49,7 @@
         .otherwise({
           templateUrl: 'views/404.html'
         });
+
     }])
     .run(['$rootScope', '$http', '$location', '$window', function ($rootScope, $http, $location, $window) {
 
