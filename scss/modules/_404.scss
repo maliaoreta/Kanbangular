@@ -1,0 +1,15 @@
+#postIt {
+  padding-top: 4em;
+  
+  img {
+    margin-left: 22em; 
+  }
+}
+
+#notFoundMsg {
+  position: fixed;
+  top: 9em;
+  font-size: 2em;
+  left: 16em;
+  color: red;
+}
