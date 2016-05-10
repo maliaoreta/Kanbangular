@@ -13,12 +13,4 @@
     "host": "127.0.0.1",
     "dialect": "postgres"
   }
-  // ,
-  // "production": {
-  //   "username": "kanbangular_user",
-  //   "password": null,
-  //   "database": "kanbangular",
-  //   "host": "127.0.0.1",
-  //   "dialect": "postgres"
-  // }
 }
