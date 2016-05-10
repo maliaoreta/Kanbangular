@@ -7,13 +7,14 @@
     kanbangular.factory('ErrorHttpInterceptor', ['$q', '$location', function($q, $location) {
       return  {
         'response': function(response) {
-          console.log("SUCCESS");
           return response;
         },
         'responseError': function(response) {
-            console.log('ERROR');
             if(response.status === 400) {
               $location.path('/404');
+            }
+            if(response.status === 401) {
+              $location.path('/login');
             }
             return $q.reject(response);
           }
