@@ -3,6 +3,7 @@ const express = require('express');
 const router = express.Router();
 
 const Tasks = require('../models').Task;
+const inputValidation = require('../middleware/inputValidation');
 
 router.route('/')
   .get((req, res) => {
@@ -22,7 +23,7 @@ router.route('/')
       });
     });
   })
-  .post((req, res) => {
+  .post(inputValidation(['title', 'description']), (req, res) => {
     let status = req.body.status;
     if(status !== 'Todo' && status !== 'In-Progress' && status !== 'Done') {
       return res.status(400).json({

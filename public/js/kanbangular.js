@@ -12,8 +12,8 @@
         },
         'responseError': function(response) {
             console.log('ERROR');
-            if(response.status === 400) {
-              $location.path('/404');
+            if(response.status === 500) {
+              $location.path('/500');
             }
             return $q.reject(response);
           }
@@ -45,6 +45,9 @@
         .when('/register', {
           templateUrl: 'views/register.html',
           controller: 'AuthController'
+        })
+        .when('/500', {
+          templateUrl: 'views/500.html'
         })
         .otherwise({
           templateUrl: 'views/404.html'
