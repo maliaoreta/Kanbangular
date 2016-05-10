@@ -12,15 +12,9 @@
         $scope.taskList = [];
 
         TasksService.getTasks().then(function(response) {
-          // if (response.data.path) {
-          //   $location.path(response.data.path);
-          // }
-          // else {
-            if(response.data.taskList) {
-
-              $scope.taskList = response.data.taskList;
-            }
-          // }
+          if(response.data.taskList) {
+            $scope.taskList = response.data.taskList;
+          }
         });
 
         $scope.postTask = function(newTask) {
@@ -105,18 +99,18 @@
 
         $scope.getForm = function (context) {
           return context.toggle;
-        }
+        };
 
         $scope.toggleForm = function (context, task) {
           context.updatedFields.title = task.title;
           context.updatedFields.description = task.description;
           context.updatedFields.status = task.status;
-          
+
           context.toggle = !context.toggle;
 
-          context.title = ''; 
+          context.title = '';
           context.description = '';
-        }
+        };
 
         $scope.getPostForm = false;
 
@@ -125,6 +119,6 @@
           $scope.description ='';
           $scope.status ='';
           $scope.getPostForm = !$scope.getPostForm;
-        }
+        };
       }]);
 })();
