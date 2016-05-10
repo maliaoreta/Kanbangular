@@ -1,0 +1,22 @@
+<div id="loginHeader">
+  <a href="/">Kanbangular</a>
+</div>
+
+<div id="loginTitle">
+  Login
+</div>
+
+<div id="loginInput">
+  <div id="register">
+    Don't have an account?<br>
+    <a href='/register'>Sign Up</a>
+  </div>
+  <div id="loginError" ng-show="loginError">{{loginError}}</div>
+  <form>
+    <p>Username</p>
+    <input type="text" ng-model="user.username"></input>
+    <p>Password</p>
+    <input type="password" ng-model="user.password"></input>
+    <button ng-click="login(user)">Login</button>
+  </form>
+</div>

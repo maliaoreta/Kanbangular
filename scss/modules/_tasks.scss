@@ -1,0 +1,256 @@
+#header {
+  background-color: $header;
+  position: fixed;
+  display: flex;
+  flex-flow: row nowrap;
+  height: 60px;
+  width: 100%;
+  align-items: center;
+
+  .header-spacer {
+    flex: 1 1 auto;
+  }
+
+  #addTaskButton {
+    padding: 5px;
+    margin-left: 10px;
+  }
+
+  #title {
+    margin: 0 0 0 10px;
+    text-decoration: none;
+  }
+
+  #loginInfo {
+    flex: 0 0 20%;
+    height: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: flex-end;
+    #login {
+      flex: 0 0 auto;
+      height: 100%;
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: center;
+      padding: 0 10px 0 10px;
+      &:hover {
+        background-color: $teal;
+      }
+    }
+    #logout {
+      flex: 0 0 auto;
+      height: 100%;
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: center;
+      padding: 0 10px 0 10px;
+      &:hover {
+        background-color: $teal;
+      }
+    }
+    #register {
+      flex: 0 0 auto;
+      height: 100%;
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: center;
+      padding: 0 10px 0 10px;
+      &:hover {
+        background-color: $teal;
+      }
+    }
+  }
+}
+
+#tasks {
+  display: flex;
+  flex-flow: row nowrap;
+  padding: 60px 0 60px 0;
+
+  .task-container {
+    flex: 1 0 33%;
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .addTask-container {
+    background-color: rgba(160, 160, 160, .8);
+    width: 41%;
+    height: 52%;
+    position: fixed;
+    left: 28.5%;
+    top: 25%;
+    border-radius: 10px;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items:center;
+    justify-content: center;
+
+    .addTask {
+      display: flex;
+      flex-flow: column nowrap;
+      width: 70%;
+
+      .addTaskInputContainer {
+        display: flex;
+        flex-flow: column nowrap;
+        margin-bottom: 1.8em;
+      }
+
+      .addTaskFormElement {
+        height: 2em;
+        border-radius: 5px;
+        padding: 5px;
+
+      }
+
+      #submitNewTaskBtn {
+        margin-bottom: 2em;
+        height: 2.5em;
+      }
+
+      .addTaskError {
+        color: red;
+        padding-top: 5px;
+      }
+    }
+  }
+}
+
+#addTaskButton {
+  background-color: $teal;
+  border-color: $teal;
+  border-radius: 2px;
+  color: white;
+
+  &:hover {
+    background-color: $darkTeal;
+  }
+}
+
+.postButtons {
+  background-color: $teal;
+  border-color: $darkTeal;
+  color: white;
+
+  &:hover {
+    background-color: $darkTeal;
+    border-color: darken($darkTeal, 5%);
+  }
+}
+
+#exitButton {
+ flex: 0 0 auto;
+ align-self: flex-end;
+ margin: 1em 1em 3em;
+}
+
+.task-column {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+
+// .task-spacer {
+//   flex: 0 0 5px;
+//   background-color: darken($grey, 20%);
+// }
+
+.task {
+  width: 85%;
+  flex: 1 1 auto;
+  border: 1px solid $darkYellow;
+  box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19), 0 8px 17px 0 rgba(0, 0, 0, 0.2);
+  text-align: left;
+  padding: 10px;
+  margin-top: 15px;
+  background-color: $lightYellow;
+  color: $darkGray;
+  display: flex;
+  flex-flow: column nowrap;
+  .taskDetails {
+    text-align: left;
+    display: flex;
+    flex-flow: column nowrap;
+    flex: 1 1 auto;
+    height: 100%;
+  }
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.arrows {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  .disabledButton {
+    background-color: lighten(grey, 10%);
+    color: lighten(grey, 20%);
+  }
+  button {
+    padding: 0 10px 0 10px;
+    margin: 10px;
+  }
+}
+
+.buttons {
+  display: flex;
+  flex-flow: 0 0 auto;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+  .edit {
+    margin-right: 10px;
+  }
+  .delete {
+    padding: 5px;
+  }
+}
+
+.body {
+  .title {
+    font-size: 22px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid black;
+  }
+  .description {
+    font-size: 15px;
+    margin-bottom: 10px;
+  }
+}
+
+.taskForm {
+  display: flex;
+  flex-flow: column nowrap;
+  flex: 1 1 auto;
+
+  .editTaskError {
+    flex: 0 0 30px;
+    //border: 1px solid red;
+  }
+
+  textarea {
+    flex: 1 0 150px;
+    height: 100%;
+    resize: none;
+    margin-bottom: 10px;
+  }
+
+  input[type="text"] {
+    flex: 0 0 20px;
+    margin-bottom: 10px;
+  }
+
+  input[type="text"]:focus {
+    border: solid 1px #707070;
+  }
+
+  button {
+    padding: 10px;
+    flex: 0 0 35px;
+    margin-bottom: 10px;
+  }
+}

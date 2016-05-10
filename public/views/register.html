@@ -1,0 +1,30 @@
+<div id="kanbangularHeader">
+  <div class="header">
+    <a href="/">Kanbangular</a>
+  </div>
+  <div id="headerSpace"></div>
+  <div class="header">
+    <a id="logoutLink" href='/logout' ng-click="logout()" ng-show="isLoggedIn">Logout</a>
+  </div>
+</div>
+
+<div id="registerTitle">
+  Register
+</div>
+
+<div id="registerInput">
+  <div id="login">
+    Have an account?<br>
+    <a href='/login'>Login</a>
+  </div>
+  <div id="userExistsError" ng-show="userExistsError">{{userExistsError}}</div>
+  <form>
+    <p>Username</p>
+    <input type="text" ng-model="user.username" ng-init="user.username=''"></input>
+    <div id="usernameError" ng-show="usernameError">{{usernameError}}</div>
+    <p>Password</p>
+    <input type="password" ng-model="user.password" ng-init="user.password=''"></input>
+    <div id="passwordError" ng-show="passwordError">{{passwordError}}</div>
+    <button ng-click="register(user)">Register</button>
+  </form>
+</div>

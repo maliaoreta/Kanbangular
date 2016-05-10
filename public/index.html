@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Kanbangular</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+</head>
+<body ng-app="kanbangular">
+
+  <div ng-view></div>
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular-route.min.js"></script>
+  <script type="text/javascript" src="/js/kanbangular.js"></script>
+  <script type="text/javascript" src="/js/controllers/tasks.js"></script>
+  <script type="text/javascript" src="/js/services/tasksServices.js"></script>
+  <script type="text/javascript" src="/js/filters/statusFilter.js"></script>
+  <script type="text/javascript" src="/js/controllers/authController.js"></script>
+  <script type="text/javascript" src="/js/services/authService.js"></script>
+</body>
+</html>

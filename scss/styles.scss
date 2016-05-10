@@ -1,0 +1,54 @@
+@import 'partials/reset';
+
+// $lightGreen: #9CE1B0;
+// $darkGreen: #77B484;
+// $earthColor: #E7BB77;
+// $darkColor: #46554C;
+
+$lightTan: lighten(#C2A892, 20%);
+$tan: darken($lightTan, 5%);
+$header: #ACCEC0;
+$teal: rgb(97,166,171);
+$darkTeal: darken($teal, 5%);
+$darkPurple: #151932;
+$darkGray: #626069;
+$lightRed: #E38464;
+$darkRed: #A68B79;
+$neonGreen: #CCEB24;
+
+$grey: #F2F2F3;
+$green: #1FDA9A;
+$red: #EE4B3E;
+$darkYellow: darken(#FCF3E3, 8%);
+$lightYellow: #FCF3E3;
+
+a {
+  text-decoration: none;
+  color:#551A8B ;
+}
+
+button {
+  color: $darkGray;
+  font-weight:bold;
+  border: 1px solid $tan;
+  background-color: $lightTan;
+  &:hover {
+    border: 1px solid $tan;
+    background-color: darken($tan, 5%);
+    color: white;
+  }
+}
+
+body {
+  background-color: $grey;
+  font-family: 'Open Sans', sans-serif;
+}
+
+h1 {
+  font-size: 26px;
+}
+
+@import 'modules/tasks';
+@import 'modules/login';
+@import 'modules/register';
+@import 'modules/error';

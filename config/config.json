@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "kanbangular_user",
+    "password": "password",
+    "database": "kanbangular",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "kanbangular_user",
+    "password": null,
+    "database": "kanbangular",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "kanbangular_user",
+    "password": null,
+    "database": "kanbangular",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  }
+}
