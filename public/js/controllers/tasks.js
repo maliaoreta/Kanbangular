@@ -111,11 +111,15 @@
           context.updatedFields.title = task.title;
           context.updatedFields.description = task.description;
           context.updatedFields.status = task.status;
+          
           context.toggle = !context.toggle;
+
+          context.title = ''; 
+          context.description = '';
         }
 
         $scope.getPostForm = false;
-        
+
         $scope.togglePostForm = function () {
           $scope.title ='';
           $scope.description ='';
