@@ -38,7 +38,7 @@ router.post('/', inputValidation(['username', 'password']), (req, res, next) => 
                 loginErrorMsg: 'Login Failed!'
               });
             }
-            return res.json({path: '/login'});
+            return res.json({path: '/', welcomeMsg: 'welcome ' + username + '!'});
           });
         });
       });

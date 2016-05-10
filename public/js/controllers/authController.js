@@ -23,6 +23,9 @@
         $scope.register = function(user) {
           AuthService.register(user.username, user.password)
           .then(function(response) {
+            $window.sessionStorage.setItem('userInfo', {username: user.username});
+            $rootScope.isLoggedIn = true;
+            $scope.welcomeMsg = response.data.welcomeMsg;
             $location.path(response.data.path);
           })
           .catch(function(response) {

@@ -57,6 +57,11 @@
     margin: 1em;
     color: darken(gray, 15%);
   }
+  
+  form {
+    display: flex;
+    flex-flow: column nowrap;
+  }
 
   input {
     flex: 0 0 auto;

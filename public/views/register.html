@@ -17,11 +17,14 @@
     Have an account?<br>
     <a href='/login'>Login</a>
   </div>
-  <p>Username</p>
-  <input type="text" ng-model="user.username" ng-init="user.username=''"></input>
-  <div class="usernameError">{{usernameError}}</div>
-  <p>Password</p>
-  <input type="password" ng-model="user.password" ng-init="user.password=''"></input>
-  <div class="passwordError">{{passwordError}}</div>
-  <button ng-click="register(user)">Register</button>
+  <div class="userExistsError" ng-hide>{{userExistsError}}</div>
+  <form>
+    <p>Username</p>
+    <input type="text" ng-model="user.username" ng-init="user.username=''"></input>
+    <div class="usernameError">{{usernameError}}</div>
+    <p>Password</p>
+    <input type="password" ng-model="user.password" ng-init="user.password=''"></input>
+    <div class="passwordError">{{passwordError}}</div>
+    <button ng-click="register(user)">Register</button>
+  </form>
 </div>
