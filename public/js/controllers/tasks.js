@@ -84,5 +84,13 @@
           });
         };
 
+        $scope.getForm = function (context) {
+          return context.toggle;
+        }
+
+        $scope.toggleForm = function (context) {
+          context.toggle = !context.toggle;
+        }
+
       }]);
 })();
