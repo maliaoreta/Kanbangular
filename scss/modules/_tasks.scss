@@ -110,7 +110,7 @@
         margin-bottom: 2em;
         height: 2.5em;
       }
-    
+
       .addTaskError {
         color: red;
         padding-top: 5px;
@@ -160,7 +160,7 @@
 
 .task {
   width: 85%;
-  flex: 1 0 300px;
+  flex: 1 1 auto;
   border: 1px solid $darkYellow;
   box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19), 0 8px 17px 0 rgba(0, 0, 0, 0.2);
   text-align: left;
@@ -228,18 +228,19 @@
   flex: 1 1 auto;
 
   .editTaskError {
-    flex: 1 1 auto;
+    flex: 0 0 30px;
+    //border: 1px solid red;
   }
 
   textarea {
-    flex: 1 0 auto;
+    flex: 1 0 150px;
     height: 100%;
     resize: none;
     margin-bottom: 10px;
   }
 
   input[type="text"] {
-    flex: 0 0 auto ;
+    flex: 0 0 20px;
     margin-bottom: 10px;
   }
 
@@ -249,7 +250,7 @@
 
   button {
     padding: 10px;
-    flex: 0 0 auto;
+    flex: 0 0 35px;
     margin-bottom: 10px;
   }
 }
