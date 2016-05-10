@@ -160,7 +160,7 @@
 
 .task {
   width: 85%;
-  flex: 0 0 300px;
+  flex: 1 0 300px;
   border: 1px solid $darkYellow;
   box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19), 0 8px 17px 0 rgba(0, 0, 0, 0.2);
   text-align: left;
@@ -227,8 +227,12 @@
   flex-flow: column nowrap;
   flex: 1 1 auto;
 
-  textarea {
+  .editTaskError {
     flex: 1 1 auto;
+  }
+
+  textarea {
+    flex: 1 0 auto;
     height: 100%;
     resize: none;
     margin-bottom: 10px;
