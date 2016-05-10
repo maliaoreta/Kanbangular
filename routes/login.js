@@ -10,7 +10,10 @@ router.get('/success', (req, res) => {
 });
 
 router.get('/failure', (req, res) => {
-  res.json({path: '/login'});
+  res.status(401).json({
+    path: '/login',
+    errorMsg: 'The username or password is invalid'
+  });
 });
 
 router.post('/', passport.authenticate('login', {
