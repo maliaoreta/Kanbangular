@@ -102,6 +102,9 @@
 
         $scope.getPostForm = false;
         $scope.togglePostForm = function () {
+          $scope.title ='';
+          $scope.description ='';
+          $scope.status ='';
           $scope.getPostForm = !$scope.getPostForm;
         }
       }]);

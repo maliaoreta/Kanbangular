@@ -25,9 +25,9 @@
     <div id="addTaskSpace"></div>
     <div class="addTask" ng-init="newTask = {title:'', description:''}">
       <input class="addTaskFormElement" type="text" ng-model="newTask.title" placeholder="title" required></input>
-      <div class="addTaskError">{{title}}</div>
+      <div class="addTaskError" ng-show="getPostForm">{{title}}</div>
       <input class="addTaskFormElement" type="text" ng-model="newTask.description" placeholder="description" required></input>
-      <div class="addTaskError">{{description}}</div>
+      <div class="addTaskError" ng-show="getPostForm">{{description}}</div>
 
       <select class="addTaskFormElement" ng-model="newTask.status" required>
         <option value="">---Please select---</option>
@@ -35,9 +35,9 @@
         <option value="In-Progress">In-Progress</option>
         <option value="Done">Done</option>
       </select>
-      <div class="addTaskError">{{status}}</div>
+      <div class="addTaskError" ng-show="getPostForm">{{status}}</div>
 
-      <button class="postButtons addTaskFormElement" ng-click="postTask(newTask)">Submit</button>
+      <button class="postButtons addTaskFormElement" ng-click="postTask(newTask)" ng-show="getPostForm">Submit</button>
     </div>
   </div>
 
