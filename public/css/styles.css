@@ -1,0 +1,426 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+a {
+  text-decoration: none;
+  color: #551A8B; }
+
+button {
+  color: #626069;
+  font-weight: bold;
+  border: 1px solid #ddcfc3;
+  background-color: #e7dcd3; }
+  button:hover {
+    border: 1px solid #ddcfc3;
+    background-color: #d4c2b3;
+    color: white; }
+
+body {
+  background-color: #F2F2F3;
+  font-family: 'Open Sans', sans-serif; }
+
+h1 {
+  font-size: 26px; }
+
+#header {
+  background-color: #ACCEC0;
+  position: fixed;
+  display: flex;
+  flex-flow: row nowrap;
+  height: 60px;
+  width: 100%;
+  align-items: center; }
+  #header .header-spacer {
+    flex: 1 1 auto; }
+  #header #addTaskButton {
+    padding: 5px;
+    margin-left: 10px; }
+  #header #title {
+    margin: 0 0 0 10px;
+    text-decoration: none; }
+  #header #loginInfo {
+    flex: 0 0 20%;
+    height: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: flex-end; }
+    #header #loginInfo #login {
+      flex: 0 0 auto;
+      height: 100%;
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: center;
+      padding: 0 10px 0 10px; }
+      #header #loginInfo #login:hover {
+        background-color: #61a6ab; }
+    #header #loginInfo #logout {
+      flex: 0 0 auto;
+      height: 100%;
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: center;
+      padding: 0 10px 0 10px; }
+      #header #loginInfo #logout:hover {
+        background-color: #61a6ab; }
+    #header #loginInfo #register {
+      flex: 0 0 auto;
+      height: 100%;
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: center;
+      padding: 0 10px 0 10px; }
+      #header #loginInfo #register:hover {
+        background-color: #61a6ab; }
+
+#tasks {
+  display: flex;
+  flex-flow: row nowrap;
+  padding: 60px 0 60px 0; }
+  #tasks .task-container {
+    flex: 1 0 33%;
+    text-align: center;
+    margin-top: 10px; }
+  #tasks .addTask-container {
+    background-color: rgba(160, 160, 160, 0.8);
+    width: 41%;
+    height: 52%;
+    position: fixed;
+    left: 28.5%;
+    top: 25%;
+    border-radius: 10px;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center; }
+    #tasks .addTask-container .addTask {
+      display: flex;
+      flex-flow: column nowrap;
+      width: 70%; }
+      #tasks .addTask-container .addTask .addTaskInputContainer {
+        display: flex;
+        flex-flow: column nowrap;
+        margin-bottom: 1.8em; }
+      #tasks .addTask-container .addTask .addTaskFormElement {
+        height: 2em;
+        border-radius: 5px;
+        padding: 5px; }
+      #tasks .addTask-container .addTask #submitNewTaskBtn {
+        margin-bottom: 2em;
+        height: 2.5em; }
+      #tasks .addTask-container .addTask .addTaskError {
+        color: red;
+        padding-top: 5px; }
+
+#addTaskButton {
+  background-color: #61a6ab;
+  border-color: #61a6ab;
+  border-radius: 2px;
+  color: white; }
+  #addTaskButton:hover {
+    background-color: #54999e; }
+
+.postButtons {
+  background-color: #61a6ab;
+  border-color: #54999e;
+  color: white; }
+  .postButtons:hover {
+    background-color: #54999e;
+    border-color: #4b898e; }
+
+#exitButton {
+  flex: 0 0 auto;
+  align-self: flex-end;
+  margin: 1em 1em 3em; }
+
+.task-column {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center; }
+
+.task {
+  width: 85%;
+  flex: 1 0 300px;
+  border: 1px solid #f8e3be;
+  box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19), 0 8px 17px 0 rgba(0, 0, 0, 0.2);
+  text-align: left;
+  padding: 10px;
+  margin-top: 15px;
+  background-color: #FCF3E3;
+  color: #626069;
+  display: flex;
+  flex-flow: column nowrap; }
+  .task .taskDetails {
+    text-align: left;
+    display: flex;
+    flex-flow: column nowrap;
+    flex: 1 1 auto;
+    height: 100%; }
+
+.spacer {
+  flex: 1 1 auto; }
+
+.arrows {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center; }
+  .arrows .disabledButton {
+    background-color: #9a9a9a;
+    color: #b3b3b3; }
+  .arrows button {
+    padding: 0 10px 0 10px;
+    margin: 10px; }
+
+.buttons {
+  display: flex;
+  flex-flow: 0 0 auto;
+  justify-content: flex-end;
+  margin-bottom: 10px; }
+  .buttons .edit {
+    margin-right: 10px; }
+  .buttons .delete {
+    padding: 5px; }
+
+.body .title {
+  font-size: 22px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid black; }
+
+.body .description {
+  font-size: 15px;
+  margin-bottom: 10px; }
+
+.taskForm {
+  display: flex;
+  flex-flow: column nowrap;
+  flex: 1 1 auto; }
+  .taskForm .editTaskError {
+    flex: 1 1 auto; }
+  .taskForm textarea {
+    flex: 1 0 auto;
+    height: 100%;
+    resize: none;
+    margin-bottom: 10px; }
+  .taskForm input[type="text"] {
+    flex: 0 0 auto;
+    margin-bottom: 10px; }
+  .taskForm input[type="text"]:focus {
+    border: solid 1px #707070; }
+  .taskForm button {
+    padding: 10px;
+    flex: 0 0 auto;
+    margin-bottom: 10px; }
+
+#loginHeader {
+  display: flex;
+  flex-flow: row wrap;
+  margin: 1em;
+  font-size: 1.5em; }
+  #loginHeader a {
+    flex: 0 0 auto;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.5em;
+    text-decoration: none;
+    color: #666666; }
+    #loginHeader a:hover {
+      color: gray;
+      font-size: 1.55em; }
+
+#loginTitle {
+  text-align: center;
+  margin: 0.5em;
+  font-size: 1.5em;
+  color: #666666; }
+
+#loginInput {
+  display: flex;
+  flex-flow: column nowrap;
+  font-family: 'Open Sans', sans-serif;
+  max-width: 35em;
+  margin: auto;
+  background-color: rgba(172, 206, 192, 0.5);
+  border: outset 2px #cce1d8;
+  height: 25em;
+  border-radius: 1em; }
+  #loginInput #register {
+    color: #4d4d4d;
+    flex: 0 0 auto;
+    padding: 1em; }
+    #loginInput #register a {
+      text-decoration: none;
+      color: #4d4d4d; }
+      #loginInput #register a:hover {
+        font-size: 1.05em;
+        color: gray; }
+  #loginInput p {
+    flex: 0 0 auto;
+    margin: 1em;
+    color: #5a5a5a; }
+  #loginInput form {
+    display: flex;
+    flex-flow: column nowrap; }
+  #loginInput input {
+    flex: 0 0 auto;
+    border-radius: 0.2em;
+    padding-left: 1em;
+    margin: 0 1em 1.5em 1em;
+    height: 3em; }
+    #loginInput input:focus {
+      box-shadow: 0 0 5px 1px #7196c2; }
+  #loginInput button {
+    margin: 1em;
+    font-family: 'Open Sans', sans-serif;
+    background-color: #61a6ab;
+    border: 2px outset #61a6ab;
+    border-radius: 5px;
+    height: 3em;
+    color: white; }
+    #loginInput button:hover {
+      border: outset 2px #54999e;
+      background-color: #54999e; }
+
+#loginError {
+  color: red;
+  margin-left: 1em; }
+
+#kanbangularHeader {
+  display: flex;
+  flex-flow: row wrap;
+  margin: 1em;
+  font-size: 1.5em; }
+  #kanbangularHeader .header {
+    flex: 0 0 auto;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.5em; }
+    #kanbangularHeader .header a {
+      text-decoration: none;
+      color: #666666; }
+    #kanbangularHeader .header:hover {
+      color: gray;
+      font-size: 1.55em; }
+  #kanbangularHeader #headerSpace {
+    flex: 1 0 50%; }
+  #kanbangularHeader #logoutLink {
+    font-size: 0.75em; }
+
+#registerTitle {
+  text-align: center;
+  margin: 0.5em;
+  font-size: 1.5em;
+  color: #666666; }
+
+#registerInput {
+  display: flex;
+  flex-flow: column nowrap;
+  font-family: 'Open Sans', sans-serif;
+  max-width: 35em;
+  margin: auto;
+  background-color: rgba(172, 206, 192, 0.5);
+  border: outset 2px #cce1d8;
+  height: 25em;
+  border-radius: 1em; }
+  #registerInput #login {
+    color: #4d4d4d;
+    flex: 0 0 auto;
+    padding: 1em; }
+    #registerInput #login a {
+      text-decoration: none;
+      color: #4d4d4d;
+      margin: 1px; }
+      #registerInput #login a:hover {
+        font-size: 1.05em;
+        color: gray; }
+  #registerInput p {
+    flex: 0 0 auto;
+    margin: 1em;
+    color: #5a5a5a; }
+  #registerInput form {
+    display: flex;
+    flex-flow: column nowrap; }
+  #registerInput input {
+    flex: 0 0 auto;
+    border-radius: 0.2em;
+    padding-left: 1em;
+    margin: 0 1em 1.5em 1em;
+    height: 3em; }
+    #registerInput input:focus {
+      box-shadow: 0 0 5px 2px #7196c2; }
+  #registerInput button {
+    margin: 1em;
+    font-family: 'Open Sans', sans-serif;
+    background-color: #61a6ab;
+    border: outset 2px #61a6ab;
+    border-radius: 5px;
+    height: 3em;
+    color: white; }
+    #registerInput button:hover {
+      border: outset 2px #54999e;
+      background-color: #54999e; }
+
+#userExistsError {
+  color: red;
+  margin-left: 1em; }
+
+#usernameError {
+  color: red;
+  margin-left: 1em; }
+
+#passwordError {
+  color: red;
+  margin-left: 1em; }
+
+#postIt {
+  padding-top: 4em; }
+  #postIt img {
+    margin-left: 22em; }
+
+#notFoundMsg {
+  position: fixed;
+  top: 9em;
+  font-size: 2em;
+  left: 16em;
+  color: red; }
