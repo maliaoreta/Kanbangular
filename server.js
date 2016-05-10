@@ -12,6 +12,7 @@ const tasks = require('./routes/tasks');
 const login = require('./routes/login');
 const register = require('./routes/register');
 const isAuthenticated = require('./middleware/authentication');
+const PORT = process.env.PORT || 3000;
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
@@ -43,7 +44,7 @@ app.get('*', (req, res) => {
 });
 
 db.sequelize.sync().then(() => {
-  app.listen(3000, () => {
-    console.log("Listening on 3000!");
+  app.listen(PORT, () => {
+    console.log("Listening on" + PORT);
   });
 });
