@@ -12,14 +12,5 @@
     "database": "kanbangular",
     "host": "127.0.0.1",
     "dialect": "postgres"
-  },
-  "production": {
-    "username": "abyvfcnjphnzrn",
-    "password": "J2Vyf-hkRX4XCtQQGSz6iyO3cv",
-    "database": "d4ul3drbgrm0p1",
-    "port": 5432,
-    "host": "ec2-54-225-120-137.compute-1.amazonaws.com",
-    "dialect": "postgres",
-    "loggin": true
   }
 }
