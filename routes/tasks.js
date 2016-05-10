@@ -27,7 +27,7 @@ router.route('/')
     let status = req.body.status;
     
     if(status !== 'Todo' && status !== 'In-Progress' && status !== 'Done') {
-      
+
       req.errorMsg.status = 'missing status';
     }
 
@@ -72,11 +72,21 @@ router.route('/:id')
       });
     });
   })
-  .put((req, res) => {
+  .put(inputValidation(['title', 'description', 'status']), (req, res) => {
+    let status = req.body.status;
+    
+    if(status !== 'Todo' && status !== 'In-Progress' && status !== 'Done') {
+
+      req.errorMsg.status = 'missing status';
+    }
+
+    if (Object.keys(req.errorMsg).length !== 0) {
+      return res.status(400).json({errorMsg: req.errorMsg});
+    }
+    
     Tasks.update(req.body.updatedFields, {
       where: {
-        id: req.params.id,
-        // user_id: req.user.id
+        id: req.params.id
       }
     })
     .then(() => {

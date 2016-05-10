@@ -71,7 +71,9 @@
 
         <div class='taskForm' ng-show="getForm(this)">
           <input type="text" ng-model="updatedFields.title" ng-init="updatedFields.title=todo.title"></input>
+          <div class="editTaskError">{{title}}</div>
           <textarea ng-model="updatedFields.description" ng-init="updatedFields.description=todo.description"></textarea>
+          <input type="hidden" ng-model="updatedFields.status" ng-init="updatedFields.status=todo.status"></input>
           <button ng-click="edit(todo, updatedFields); toggleForm(this)">Submit</button>
           <button ng-click="toggleForm(this)">Exit</button>
         </div>

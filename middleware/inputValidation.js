@@ -9,11 +9,6 @@ function formValidation (validFields) {
       return prev;
     }, {})
 
-    // if (Object.keys(errorMsg).length !== 0) {
-
-    //   req.errorMsg = errorMsg;
-    // }
-
     return next();
   };
 }

@@ -89,6 +89,15 @@
           .then(function (response) {
             task.title = updatedFields.title;
             task.description = updatedFields.description;
+          })
+          .catch(function (response) {
+            if (response.data.errorMsg) {
+              $scope.title = response.data.errorMsg.title;
+              $scope.description = response.data.errorMsg.description;
+              $scope.status = response.data.errorMsg.status;
+            }
+
+            console.log("POST", response);
           });
         };
 
