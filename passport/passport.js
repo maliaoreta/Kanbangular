@@ -34,6 +34,7 @@ function setUpPassport () {
       });
     })
     .catch((err) => {
+      console.log("couldn't find user");
       return done(err);
     });
   }));

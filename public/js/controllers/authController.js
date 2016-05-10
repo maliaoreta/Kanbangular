@@ -13,6 +13,10 @@
             $window.sessionStorage.setItem('userInfo', {username: user.username});
             $rootScope.isLoggedIn = true;
             $location.path(response.data.path);
+          })
+          .catch(function(response) {
+            $scope.loginError = response.data.errorMsg;
+            $location.path(response.data.path);
           });
         };
 
