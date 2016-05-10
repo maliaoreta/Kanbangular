@@ -23,7 +23,7 @@
           }
         });
 
-        $scope.postTask = function(newTask, context) {
+        $scope.postTask = function(newTask) {
           TasksService.postTask(newTask.title, newTask.description, newTask.status)
           .then(function(response) {
             $scope.taskList.push(response.data.newTask);
@@ -34,9 +34,11 @@
             $scope.togglePostForm();
           })
           .catch(function(response) {
-
-            $scope.title = response.data.errorMsg.title;
-            $scope.description = response.data.errorMsg.description;
+            if (response.data.errorMsg) {
+              $scope.title = response.data.errorMsg.title;
+              $scope.description = response.data.errorMsg.description;
+              $scope.status = response.data.errorMsg.status;
+            }
 
             console.log("POST", response);
           });

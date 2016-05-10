@@ -25,20 +25,23 @@ router.route('/')
   })
   .post(inputValidation(['title', 'description']), (req, res) => {
     let status = req.body.status;
+    
     if(status !== 'Todo' && status !== 'In-Progress' && status !== 'Done') {
-      return res.status(400).json({
-        messages: {
-          status: "Bad Status"
-        }
-      });
+      
+      req.errorMsg.status = 'missing status';
     }
+
+    if (Object.keys(req.errorMsg).length !== 0) {
+      return res.status(400).json({errorMsg: req.errorMsg});
+    }
+
     Tasks.create({
       title: req.body.title,
       description: req.body.description,
       status: req.body.status,
       user_id: req.user.id
     })
-    .then((task) => {
+    .then((task) => { 
       res.json({newTask: task});
     })
     .catch((err) => {
