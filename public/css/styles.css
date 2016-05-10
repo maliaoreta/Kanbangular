@@ -184,7 +184,11 @@ h1 {
 
 .task {
   width: 85%;
+<<<<<<< HEAD
   flex: 1 1 auto;
+=======
+  flex: 1 0 300px;
+>>>>>>> 2e21132c38260916f798a52510bee4d37768d4f5
   border: 1px solid #f8e3be;
   box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19), 0 8px 17px 0 rgba(0, 0, 0, 0.2);
   text-align: left;
@@ -239,20 +243,34 @@ h1 {
   flex-flow: column nowrap;
   flex: 1 1 auto; }
   .taskForm .editTaskError {
+<<<<<<< HEAD
     flex: 0 0 30px; }
   .taskForm textarea {
     flex: 1 0 150px;
+=======
+    flex: 1 1 auto; }
+  .taskForm textarea {
+    flex: 1 0 auto;
+>>>>>>> 2e21132c38260916f798a52510bee4d37768d4f5
     height: 100%;
     resize: none;
     margin-bottom: 10px; }
   .taskForm input[type="text"] {
+<<<<<<< HEAD
     flex: 0 0 20px;
+=======
+    flex: 0 0 auto;
+>>>>>>> 2e21132c38260916f798a52510bee4d37768d4f5
     margin-bottom: 10px; }
   .taskForm input[type="text"]:focus {
     border: solid 1px #707070; }
   .taskForm button {
     padding: 10px;
+<<<<<<< HEAD
     flex: 0 0 35px;
+=======
+    flex: 0 0 auto;
+>>>>>>> 2e21132c38260916f798a52510bee4d37768d4f5
     margin-bottom: 10px; }
 
 #loginHeader {
@@ -323,6 +341,13 @@ h1 {
       border: outset 2px #54999e;
       background-color: #54999e; }
 
+<<<<<<< HEAD
+=======
+#loginError {
+  color: red;
+  margin-left: 1em; }
+
+>>>>>>> 2e21132c38260916f798a52510bee4d37768d4f5
 #kanbangularHeader {
   display: flex;
   flex-flow: row wrap;
@@ -397,6 +422,21 @@ h1 {
       border: outset 2px #54999e;
       background-color: #54999e; }
 
+<<<<<<< HEAD
+=======
+#userExistsError {
+  color: red;
+  margin-left: 1em; }
+
+#usernameError {
+  color: red;
+  margin-left: 1em; }
+
+#passwordError {
+  color: red;
+  margin-left: 1em; }
+
+>>>>>>> 2e21132c38260916f798a52510bee4d37768d4f5
 #postIt {
   padding-top: 4em; }
   #postIt img {
