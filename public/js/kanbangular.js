@@ -21,7 +21,7 @@
         };
     }]);
 
-    var checkLoggedin = function($q, $timeout, $http, $location, $rootScope, $window){
+    var checkLoggedin = ['$q', '$location', '$window', function($q, $location, $window){
       // Initialize a new promise
       var deferred = $q.defer();
 
@@ -32,7 +32,7 @@
         $location.url('/login');
       }
       return deferred.promise;
-    };
+    }];
 
     kanbangular.config([
       '$routeProvider',
