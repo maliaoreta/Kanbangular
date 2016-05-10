@@ -78,23 +78,25 @@
             }
           }
 
-          TasksService.edit(task.id, updatedFields)
+          TasksService.edit(task.id, task.title, task.description, updatedFields.status)
           .then(function (response) {
             task.status = updatedFields.status;
           });
         };
 
-        $scope.edit = function(task, updatedFields) {
-          TasksService.edit(task.id, updatedFields)
+        $scope.edit = function(task, updatedFields, context) {
+          TasksService.edit(task.id, updatedFields.title, updatedFields.description, updatedFields.status)
           .then(function (response) {
             task.title = updatedFields.title;
             task.description = updatedFields.description;
+
+            context.toggle = !context.toggle;
           })
           .catch(function (response) {
             if (response.data.errorMsg) {
-              $scope.title = response.data.errorMsg.title;
-              $scope.description = response.data.errorMsg.description;
-              $scope.status = response.data.errorMsg.status;
+              context.title = response.data.errorMsg.title;
+              context.description = response.data.errorMsg.description;
+              context.status = response.data.errorMsg.status;
             }
 
             console.log("POST", response);
@@ -105,7 +107,10 @@
           return context.toggle;
         }
 
-        $scope.toggleForm = function (context) {
+        $scope.toggleForm = function (context, task) {
+          context.updatedFields.title = task.title;
+          context.updatedFields.description = task.description;
+          context.updatedFields.status = task.status;
           context.toggle = !context.toggle;
         }
 

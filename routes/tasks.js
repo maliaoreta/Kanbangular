@@ -74,7 +74,7 @@ router.route('/:id')
   })
   .put(inputValidation(['title', 'description', 'status']), (req, res) => {
     let status = req.body.status;
-    
+        
     if(status !== 'Todo' && status !== 'In-Progress' && status !== 'Done') {
 
       req.errorMsg.status = 'missing status';
@@ -83,8 +83,13 @@ router.route('/:id')
     if (Object.keys(req.errorMsg).length !== 0) {
       return res.status(400).json({errorMsg: req.errorMsg});
     }
-    
-    Tasks.update(req.body.updatedFields, {
+
+
+    Tasks.update({
+      title: req.body.title,
+      description: req.body.description,
+      status: req.body.status
+    }, {
       where: {
         id: req.params.id
       }
