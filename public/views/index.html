@@ -1,8 +1,8 @@
 <div id="header">
   <a id="title" href="/"><h1>Kanbangular</h1></a>
 
-  <div ng-hide="getForm(this)">
-    <button id="addTaskButton" ng-click="toggleForm(this)">Add Task</button>
+  <div ng-hide="getPostForm">
+    <button id="addTaskButton" ng-click="togglePostForm()">Add Task</button>
   </div>
 
 
@@ -20,8 +20,8 @@
 
 <div id="tasks">
 
-  <div class="addTask-container" ng-show="getForm(this)">
-    <button class="postButtons" id="exitButton" ng-click="toggleForm(this)"><i class="fa fa-times" aria-hidden="true"></i></button>
+  <div class="addTask-container" ng-show="getPostForm">
+    <button class="postButtons" id="exitButton" ng-click="togglePostForm()"><i class="fa fa-times" aria-hidden="true"></i></button>
     <div id="addTaskSpace"></div>
     <div class="addTask">
       <input class="addTaskFormElement" type="text" ng-model="newTask.title" placeholder="title" required></input>
@@ -34,7 +34,7 @@
         <option value="Done">Done</option>
       </select>
 
-      <button class="postButtons addTaskFormElement" ng-click="postTask(newTask); toggleForm(this)">Submit</button>
+      <button class="postButtons addTaskFormElement" ng-click="postTask(newTask)">Submit</button>
     </div>
   </div>
 

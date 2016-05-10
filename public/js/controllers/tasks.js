@@ -23,13 +23,15 @@
           }
         });
 
-        $scope.postTask = function(newTask) {
+        $scope.postTask = function(newTask, context) {
           TasksService.postTask(newTask.title, newTask.description, newTask.status)
           .then(function(response) {
             $scope.taskList.push(response.data.newTask);
             newTask.title = '';
             newTask.description = '';
             newTask.status = '';
+
+            $scope.togglePostForm();
           })
           .catch(function(response) {
             console.log("POST", response);
@@ -92,5 +94,9 @@
           context.toggle = !context.toggle;
         }
 
+        $scope.getPostForm = false;
+        $scope.togglePostForm = function () {
+          $scope.getPostForm = !$scope.getPostForm;
+        }
       }]);
 })();
