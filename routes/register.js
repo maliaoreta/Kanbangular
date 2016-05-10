@@ -19,7 +19,6 @@ router.post('/', inputValidation(['username', 'password']), (req, res, next) => 
   User.findOne({where: {username: username}})
   .then((user) => {
     if (user) {
-      console.log("USER IS FOUND", user);
       return res.status(401).json({
         path: '/register',
         userExistsErrorMsg: 'User already exists'
