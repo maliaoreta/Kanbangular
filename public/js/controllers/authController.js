@@ -29,11 +29,16 @@
             $location.path(response.data.path);
           })
           .catch(function(response) {
+            $scope.loginErrorMsg = '';
+            $scope.userExistsErrorMsg = '';
+            $scope.usernameError = '';
+            $scope.passwordError = '';
+
             if(response.data.loginErrorMsg) {
               $scope.loginErrorMsg = response.data.loginErrorMsg;
-            } else if(response.data.userExistsErrorMsg) {
+            } if(response.data.userExistsErrorMsg) {
               $scope.userExistsError = response.data.userExistsErrorMsg;
-            }else if(response.data.errorMsg) {
+            } if(response.data.errorMsg) {
               $scope.usernameError = response.data.errorMsg.username;
               $scope.passwordError = response.data.errorMsg.password;
             }
