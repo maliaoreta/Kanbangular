@@ -8,7 +8,6 @@ function formValidation (validFields) {
 
       return prev;
     }, {})
-
     return next();
   };
 }
