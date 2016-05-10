@@ -115,6 +115,7 @@
         }
 
         $scope.getPostForm = false;
+        
         $scope.togglePostForm = function () {
           $scope.title ='';
           $scope.description ='';
