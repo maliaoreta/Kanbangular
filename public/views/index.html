@@ -25,7 +25,9 @@
     <div id="addTaskSpace"></div>
     <div class="addTask">
       <input class="addTaskFormElement" type="text" ng-model="newTask.title" placeholder="title" required></input>
+      <div id="addTaskError">{{title}}</div>
       <input class="addTaskFormElement" type="text" ng-model="newTask.description" placeholder="description" required></input>
+      <div id="addTaskError">{{description}}</div>
 
       <select class="addTaskFormElement" ng-model="newTask.status" required>
         <option value="">---Please select---</option>

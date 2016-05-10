@@ -34,6 +34,10 @@
             $scope.togglePostForm();
           })
           .catch(function(response) {
+
+            $scope.title = response.data.errorMsg.title;
+            $scope.description = response.data.errorMsg.description;
+
             console.log("POST", response);
           });
         };

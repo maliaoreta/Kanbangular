@@ -11,7 +11,7 @@ function formValidation (validFields) {
 
     if (Object.keys(errorMsgs).length !== 0) {
 
-      return res.status(400).json({errorMsgs});
+      return res.status(400).json({errorMsg: errorMsgs});
     }
 
     return next();
