@@ -71,7 +71,7 @@
 
         <div class='taskForm' ng-show="getForm(this)">
           <input type="text" ng-model="updatedFields.title" ng-init="updatedFields.title=todo.title"></input>
-          <div class="editTaskError" ng-show="getForm(this)">{{this.title}}</div>
+          <div class="editTaskError">{{this.title}}</div>
           <textarea ng-model="updatedFields.description" ng-init="updatedFields.description=todo.description"></textarea>
           <div class="editTaskError">{{this.description}}</div>
           <input type="hidden" ng-model="updatedFields.status" ng-init="updatedFields.status=todo.status"></input>
