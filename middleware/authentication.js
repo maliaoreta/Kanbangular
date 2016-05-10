@@ -1,6 +1,6 @@
 function isAuthenticated (req, res, next) {
   if (!req.isAuthenticated()) {
-    return res.json({path: '/login'});
+    return res.status(401).json({path: '/login'});
   }
 
   return next();

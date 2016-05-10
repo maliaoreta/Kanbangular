@@ -1,12 +1,13 @@
 'use strict'
 const express = require('express');
 const router = express.Router();
+const isAuthenticated = require('../middleware/authentication');
 
 const Tasks = require('../models').Task;
 const inputValidation = require('../middleware/inputValidation');
 
 router.route('/')
-  .get((req, res) => {
+  .get(isAuthenticated, (req, res) => {
     Tasks.findAll({
       where: {
         user_id: req.user.id
@@ -23,9 +24,9 @@ router.route('/')
       });
     });
   })
-  .post(inputValidation(['title', 'description']), (req, res) => {
+  .post(isAuthenticated, inputValidation(['title', 'description']), (req, res) => {
     let status = req.body.status;
-    
+
     if(status !== 'Todo' && status !== 'In-Progress' && status !== 'Done') {
 
       req.errorMsg.status = 'missing status';
@@ -41,7 +42,7 @@ router.route('/')
       status: req.body.status,
       user_id: req.user.id
     })
-    .then((task) => { 
+    .then((task) => {
       res.json({newTask: task});
     })
     .catch((err) => {
@@ -54,7 +55,7 @@ router.route('/')
   });
 
 router.route('/:id')
-  .delete((req, res) => {
+  .delete(isAuthenticated, (req, res) => {
     Tasks.destroy({
       where: {
         id: req.params.id,
@@ -72,9 +73,9 @@ router.route('/:id')
       });
     });
   })
-  .put(inputValidation(['title', 'description', 'status']), (req, res) => {
+  .put(isAuthenticated, inputValidation(['title', 'description', 'status']), (req, res) => {
     let status = req.body.status;
-        
+
     if(status !== 'Todo' && status !== 'In-Progress' && status !== 'Done') {
 
       req.errorMsg.status = 'missing status';

@@ -7,18 +7,32 @@
     kanbangular.factory('ErrorHttpInterceptor', ['$q', '$location', function($q, $location) {
       return  {
         'response': function(response) {
-          console.log("SUCCESS");
           return response;
         },
         'responseError': function(response) {
-            console.log('ERROR');
             if(response.status === 500) {
               $location.path('/500');
+            }
+            if(response.status === 401) {
+              $location.path('/login');
             }
             return $q.reject(response);
           }
         };
     }]);
+
+    var checkLoggedin = function($q, $timeout, $http, $location, $rootScope, $window){
+      // Initialize a new promise
+      var deferred = $q.defer();
+
+      if($window.sessionStorage.getItem('userInfo')) {
+        deferred.resolve();
+      } else {
+        deferred.reject();
+        $location.url('/login');
+      }
+      return deferred.promise;
+    };
 
     kanbangular.config([
       '$routeProvider',
@@ -37,6 +51,9 @@
         .when('/', {
           templateUrl: 'views/index.html',
           controller: 'TasksController',
+          resolve: {
+            loggedin: checkLoggedin
+          }
         })
         .when('/login', {
           templateUrl: 'views/login.html',
