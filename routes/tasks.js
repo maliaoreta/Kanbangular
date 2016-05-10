@@ -1,12 +1,13 @@
 'use strict'
 const express = require('express');
 const router = express.Router();
-const isAuthenticated = require('./middleware/authentication');
+const isAuthenticated = require('../middleware/authentication');
 
 const Tasks = require('../models').Task;
+const inputValidation = require('../middleware/inputValidation');
 
 router.route('/')
-  .get((req, res) => {
+  .get(isAuthenticated, (req, res) => {
     Tasks.findAll({
       where: {
         user_id: req.user.id
@@ -23,15 +24,18 @@ router.route('/')
       });
     });
   })
-  .post((req, res) => {
+  .post(isAuthenticated, inputValidation(['title', 'description']), (req, res) => {
     let status = req.body.status;
+
     if(status !== 'Todo' && status !== 'In-Progress' && status !== 'Done') {
-      return res.status(400).json({
-        messages: {
-          status: "Bad Status"
-        }
-      });
+
+      req.errorMsg.status = 'missing status';
     }
+
+    if (Object.keys(req.errorMsg).length !== 0) {
+      return res.status(400).json({errorMsg: req.errorMsg});
+    }
+
     Tasks.create({
       title: req.body.title,
       description: req.body.description,
@@ -51,7 +55,7 @@ router.route('/')
   });
 
 router.route('/:id')
-  .delete((req, res) => {
+  .delete(isAuthenticated, (req, res) => {
     Tasks.destroy({
       where: {
         id: req.params.id,
@@ -69,11 +73,26 @@ router.route('/:id')
       });
     });
   })
-  .put((req, res) => {
-    Tasks.update(req.body.updatedFields, {
+  .put(isAuthenticated, inputValidation(['title', 'description', 'status']), (req, res) => {
+    let status = req.body.status;
+
+    if(status !== 'Todo' && status !== 'In-Progress' && status !== 'Done') {
+
+      req.errorMsg.status = 'missing status';
+    }
+
+    if (Object.keys(req.errorMsg).length !== 0) {
+      return res.status(400).json({errorMsg: req.errorMsg});
+    }
+
+
+    Tasks.update({
+      title: req.body.title,
+      description: req.body.description,
+      status: req.body.status
+    }, {
       where: {
-        id: req.params.id,
-        // user_id: req.user.id
+        id: req.params.id
       }
     })
     .then(() => {

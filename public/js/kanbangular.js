@@ -10,8 +10,8 @@
           return response;
         },
         'responseError': function(response) {
-            if(response.status === 400) {
-              $location.path('/404');
+            if(response.status === 500) {
+              $location.path('/500');
             }
             if(response.status === 401) {
               $location.path('/login');
@@ -20,6 +20,19 @@
           }
         };
     }]);
+
+    var checkLoggedin = function($q, $timeout, $http, $location, $rootScope, $window){
+      // Initialize a new promise
+      var deferred = $q.defer();
+
+      if($window.sessionStorage.getItem('userInfo')) {
+        deferred.resolve();
+      } else {
+        deferred.reject();
+        $location.url('/login');
+      }
+      return deferred.promise;
+    };
 
     kanbangular.config([
       '$routeProvider',
@@ -38,6 +51,9 @@
         .when('/', {
           templateUrl: 'views/index.html',
           controller: 'TasksController',
+          resolve: {
+            loggedin: checkLoggedin
+          }
         })
         .when('/login', {
           templateUrl: 'views/login.html',
@@ -46,6 +62,9 @@
         .when('/register', {
           templateUrl: 'views/register.html',
           controller: 'AuthController'
+        })
+        .when('/500', {
+          templateUrl: 'views/500.html'
         })
         .otherwise({
           templateUrl: 'views/404.html'

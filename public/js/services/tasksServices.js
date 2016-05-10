@@ -17,8 +17,8 @@
       return $http.delete('/api/tasks/' + id);
     };
 
-    this.edit = function(id, updatedFields) {
-      return $http.put('/api/tasks/' + id, {updatedFields: updatedFields});
+    this.edit = function(id, updatedTitle, updatedDescription, updatedStatus) {
+      return $http.put('/api/tasks/' + id, {title: updatedTitle, description: updatedDescription, status: updatedStatus});
     };
   }
 

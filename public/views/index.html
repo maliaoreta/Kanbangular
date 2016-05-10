@@ -1,8 +1,8 @@
 <div id="header">
   <a id="title" href="/"><h1>Kanbangular</h1></a>
 
-  <div ng-hide="toggleAddTask">
-    <button id="addTaskButton" ng-click="toggleAddTask = !toggleAddTask">Add Task</button>
+  <div ng-hide="getPostForm">
+    <button id="addTaskButton" ng-click="togglePostForm()">Add Task</button>
   </div>
 
 
@@ -20,12 +20,14 @@
 
 <div id="tasks">
 
-  <div class="addTask-container" ng-show="toggleAddTask">
-    <button class="postButtons" id="exitButton" ng-click="toggleAddTask = !toggleAddTask"><i class="fa fa-times" aria-hidden="true"></i></button>
+  <div class="addTask-container" ng-show="getPostForm">
+    <button class="postButtons" id="exitButton" ng-click="togglePostForm()"><i class="fa fa-times" aria-hidden="true"></i></button>
     <div id="addTaskSpace"></div>
-    <div class="addTask">
+    <div class="addTask" ng-init="newTask = {title:'', description:''}">
       <input class="addTaskFormElement" type="text" ng-model="newTask.title" placeholder="title" required></input>
+      <div class="addTaskError" ng-show="getPostForm">{{title}}</div>
       <input class="addTaskFormElement" type="text" ng-model="newTask.description" placeholder="description" required></input>
+      <div class="addTaskError" ng-show="getPostForm">{{description}}</div>
 
       <select class="addTaskFormElement" ng-model="newTask.status" required>
         <option value="">---Please select---</option>
@@ -33,8 +35,9 @@
         <option value="In-Progress">In-Progress</option>
         <option value="Done">Done</option>
       </select>
+      <div class="addTaskError" ng-show="getPostForm">{{status}}</div>
 
-      <button class="postButtons addTaskFormElement" ng-click="postTask(newTask); toggleAddTask = !toggleAddTask">Submit</button>
+      <button class="postButtons addTaskFormElement" ng-click="postTask(newTask)" ng-show="getPostForm">Submit</button>
     </div>
   </div>
 
@@ -44,10 +47,10 @@
   <h1>Todo</h1>
   <div class="task-column">
     <div class="task" ng-repeat="todo in taskList | statusFilter:'Todo'">
-        <div class="taskDetails" ng-hide="toggleForm">
+        <div class="taskDetails" ng-hide="getForm(this)">
 
           <div class="buttons">
-            <button class="edit" ng-click="toggleForm = !toggleForm"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></button>
+            <button class="edit" ng-click="toggleForm(this, todo)"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></button>
             <button class="delete" ng-click="deleteTask(todo)"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></button>
           </div>
 
@@ -66,11 +69,14 @@
           </div>
         </div>
 
-        <div class='taskForm' ng-show="toggleForm">
+        <div class='taskForm' ng-show="getForm(this)">
           <input type="text" ng-model="updatedFields.title" ng-init="updatedFields.title=todo.title"></input>
+          <div class="editTaskError" ng-show="getForm(this)">{{this.title}}</div>
           <textarea ng-model="updatedFields.description" ng-init="updatedFields.description=todo.description"></textarea>
-          <button ng-click="edit(todo, updatedFields); toggleForm = !toggleForm">Submit</button>
-          <button ng-click="toggleForm = !toggleForm">Exit</button>
+          <div class="editTaskError">{{this.description}}</div>
+          <input type="hidden" ng-model="updatedFields.status" ng-init="updatedFields.status=todo.status"></input>
+          <button ng-click="edit(todo, updatedFields, this)">Submit</button>
+          <button ng-click="toggleForm(this, todo)">Exit</button>
         </div>
       </div>
     </div>
@@ -80,10 +86,10 @@
     <h1>In-Progress</h1>
     <div class="task-column">
       <div class="task" id="inProgress" ng-repeat="inProgress in taskList | statusFilter:'In-Progress'">
-        <div class="taskDetails" ng-hide="toggleForm">
+        <div class="taskDetails" ng-hide="getForm(this)">
 
           <div class="buttons">
-            <button class="edit" ng-click="toggleForm = !toggleForm"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></button>
+            <button class="edit" ng-click="toggleForm(this, inProgress)"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></button>
             <button class="delete" ng-click="deleteTask(inProgress)"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></button>
           </div>
 
@@ -103,11 +109,14 @@
         </div>
 
 
-        <div class='taskForm' ng-show="toggleForm">
+        <div class='taskForm' ng-show="getForm(this)">
           <input type="text" ng-model="updatedFields.title" ng-init="updatedFields.title=inProgress.title"></input>
+          <div class="editTaskError">{{this.title}}</div>
           <textarea ng-model="updatedFields.description" ng-init="updatedFields.description=inProgress.description"></textarea>
-          <button ng-click="edit(inProgress, updatedFields); toggleForm = !toggleForm">Submit</button>
-          <button ng-click="toggleForm = !toggleForm">Exit</button>
+          <div class="editTaskError">{{this.description}}</div>
+          <input type="hidden" ng-model="updatedFields.status" ng-init="updatedFields.status=inProgress.status"></input>
+          <button ng-click="edit(inProgress, updatedFields, this)">Submit</button>
+          <button ng-click="toggleForm(this, inProgress)">Exit</button>
         </div>
 
       </div>
@@ -119,9 +128,9 @@
     <div class="task-column">
       <div class="task" id="done" ng-repeat="done in taskList | statusFilter:'Done'">
 
-        <div class="taskDetails" ng-hide="toggleForm">
+        <div class="taskDetails" ng-hide="getForm(this)">
           <div class="buttons">
-            <button class="edit" ng-click="toggleForm = !toggleForm"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></button>
+            <button class="edit" ng-click="toggleForm(this, done)"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></button>
             <button class="delete" ng-click="deleteTask(done)"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></button>
           </div>
 
@@ -140,11 +149,14 @@
           </div>
         </div>
 
-          <div class='taskForm' ng-show="toggleForm">
+          <div class='taskForm' ng-show="getForm(this)">
             <input type="text" ng-model="updatedFields.title" ng-init="updatedFields.title=done.title"></input>
+            <div class="editTaskError">{{this.title}}</div>
             <textarea ng-model="updatedFields.description" ng-init="updatedFields.description=done.description"></textarea>
-            <button ng-click="edit(done, updatedFields); toggleForm = !toggleForm">Submit</button>
-            <button ng-click="toggleForm = !toggleForm">Exit</button>
+            <div class="editTaskError">{{this.description}}</div>
+            <input type="hidden" ng-model="updatedFields.status" ng-init="updatedFields.status=done.status"></input>
+            <button ng-click="edit(done, updatedFields, this)">Submit</button>
+            <button ng-click="toggleForm(this, done)">Exit</button>
           </div>
         </div>
       </div>
