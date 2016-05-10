@@ -24,20 +24,26 @@
     <button class="postButtons" id="exitButton" ng-click="togglePostForm()"><i class="fa fa-times" aria-hidden="true"></i></button>
     <div id="addTaskSpace"></div>
     <div class="addTask" ng-init="newTask = {title:'', description:''}">
-      <input class="addTaskFormElement" type="text" ng-model="newTask.title" placeholder="title" required></input>
-      <div class="addTaskError" ng-show="getPostForm">{{title}}</div>
-      <input class="addTaskFormElement" type="text" ng-model="newTask.description" placeholder="description" required></input>
-      <div class="addTaskError" ng-show="getPostForm">{{description}}</div>
+      <div class="addTaskInputContainer">
+        <input class="addTaskFormElement" type="text" ng-model="newTask.title" placeholder="title" required></input>
+        <div class="addTaskError" ng-show="getPostForm">{{title}}</div>
+      </div>
+      <div class="addTaskInputContainer">
+        <input class="addTaskFormElement" type="text" ng-model="newTask.description" placeholder="description" required></input>
+        <div class="addTaskError" ng-show="getPostForm">{{description}}</div>
+      </div>  
 
-      <select class="addTaskFormElement" ng-model="newTask.status" required>
-        <option value="">---Please select---</option>
-        <option value="Todo">Todo</option>
-        <option value="In-Progress">In-Progress</option>
-        <option value="Done">Done</option>
-      </select>
-      <div class="addTaskError" ng-show="getPostForm">{{status}}</div>
+      <div class="addTaskInputContainer">
+        <select class="addTaskFormElement" ng-model="newTask.status" required>
+          <option value="">---Please select---</option>
+          <option value="Todo">Todo</option>
+          <option value="In-Progress">In-Progress</option>
+          <option value="Done">Done</option>
+        </select>
+        <div class="addTaskError" ng-show="getPostForm">{{status}}</div>
+      </div>
 
-      <button class="postButtons addTaskFormElement" ng-click="postTask(newTask)" ng-show="getPostForm">Submit</button>
+      <button id="submitNewTaskBtn" class="postButtons addTaskFormElement" ng-click="postTask(newTask)" ng-show="getPostForm">Submit</button>
     </div>
   </div>
 

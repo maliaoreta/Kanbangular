@@ -78,25 +78,42 @@
   .addTask-container {
     background-color: rgba(160, 160, 160, .8);
     width: 41%;
-    height: 50%;
+    height: 52%;
     position: fixed;
     left: 28.5%;
     top: 25%;
     border-radius: 10px;
-
     display: flex;
     flex-flow: column nowrap;
     align-items:center;
+    justify-content: center;
+
     .addTask {
       display: flex;
       flex-flow: column nowrap;
       width: 70%;
 
+      .addTaskInputContainer {
+        display: flex;
+        flex-flow: column nowrap;
+        margin-bottom: 1.8em;
+      }
+
       .addTaskFormElement {
-        margin: 0.5em;
         height: 2em;
         border-radius: 5px;
-        padding: 3px;
+        padding: 5px;
+
+      }
+
+      #submitNewTaskBtn {
+        margin-bottom: 2em;
+        height: 2.5em;
+      }
+    
+      .addTaskError {
+        color: red;
+        padding-top: 5px;
       }
     }
   }
