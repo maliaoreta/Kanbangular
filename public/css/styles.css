@@ -66,6 +66,10 @@ body {
 h1 {
   font-size: 26px; }
 
+.errorMessage {
+  color: red;
+  margin-left: 1em; }
+
 #header {
   background-color: #ACCEC0;
   position: fixed;
@@ -73,7 +77,8 @@ h1 {
   flex-flow: row nowrap;
   height: 60px;
   width: 100%;
-  align-items: center; }
+  align-items: center;
+  top: 0; }
   #header .header-spacer {
     flex: 1 1 auto; }
   #header #addTaskButton {
@@ -153,7 +158,7 @@ h1 {
         margin-bottom: 2em;
         height: 2.5em; }
       #tasks .addTask-container .addTask .addTaskError {
-        color: red;
+        margin: 0;
         padding-top: 5px; }
 
 #addTaskButton {
@@ -266,21 +271,6 @@ h1 {
     flex: 0 0 35px;
     margin-bottom: 10px; }
 
-#loginHeader {
-  display: flex;
-  flex-flow: row wrap;
-  margin: 1em;
-  font-size: 1.5em; }
-  #loginHeader a {
-    flex: 0 0 auto;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 1.5em;
-    text-decoration: none;
-    color: #666666; }
-    #loginHeader a:hover {
-      color: gray;
-      font-size: 1.55em; }
-
 #loginTitle {
   text-align: center;
   margin: 0.5em;
@@ -333,10 +323,6 @@ h1 {
     #loginInput button:hover {
       border: outset 2px #54999e;
       background-color: #54999e; }
-
-#loginError {
-  color: red;
-  margin-left: 1em; }
 
 #kanbangularHeader {
   display: flex;
@@ -411,18 +397,6 @@ h1 {
     #registerInput button:hover {
       border: outset 2px #54999e;
       background-color: #54999e; }
-
-#userExistsError {
-  color: red;
-  margin-left: 1em; }
-
-#usernameError {
-  color: red;
-  margin-left: 1em; }
-
-#passwordError {
-  color: red;
-  margin-left: 1em; }
 
 #postIt {
   padding-top: 4em; }
