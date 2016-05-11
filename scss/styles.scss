@@ -33,7 +33,9 @@ button {
     color: white;
   }
 }
-
+html, body, #view {
+  height: 100%;
+}
 body {
   background-color: $grey;
   font-family: 'Open Sans', sans-serif;
@@ -43,12 +45,6 @@ h1 {
   font-size: 26px;
 }
 
-.errorMessage {
-  color: red;
-  margin-left: 1em;
-}
-
 @import 'modules/tasks';
-@import 'modules/login';
-@import 'modules/register';
+@import 'modules/auth';
 @import 'modules/error';

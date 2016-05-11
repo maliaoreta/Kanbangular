@@ -1,0 +1,62 @@
+#authContainer {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  height: 100%;
+
+  #authTitle {
+    padding-top: 160px;
+    margin-bottom: 10px;
+  }
+
+  #auth {
+    padding: 20px;
+    flex: 0 1 auto;
+    width: 30%;
+    border: 1px solid $darkYellow;
+    background-color: $lightYellow;
+    display: flex;
+    flex-flow: column nowrap;
+
+    #switchAuth {
+      flex: 0 0 45px;
+      height: 100%;
+    }
+
+    #authForm {
+      flex: 0 0 40%;
+      display: flex;
+      flex-flow: column nowrap;
+
+      label {
+        margin-bottom: 10px;
+      }
+
+      input {
+        padding: 5px;
+        margin-bottom: 10px;
+      }
+
+      button {
+        padding: 10px;
+      }
+
+    }
+
+  }
+}
+
+.authError {
+    flex: 0 0 20px;
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 1px solid $red;
+    background-color: $lightRed;
+    color: white;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    i {
+      margin-right: 10px;
+    }
+}
