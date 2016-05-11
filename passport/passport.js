@@ -16,6 +16,7 @@ function setUpPassport () {
   });
 
   passport.use('login', new LocalStrategy((username, password, done) => {
+
     User.findOne({
       where: {
         username: username

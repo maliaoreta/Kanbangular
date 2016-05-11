@@ -15,9 +15,9 @@
     <div class="authError" ng-if="loginError"><i class="fa fa-times" aria-hidden="true"></i>{{loginError}}</div>
     <form id="authForm">
       <label for="username">Username</label>
-      <input type="text" name="username" ng-model="user.username"></input>
+      <input type="text" name="username" ng-model="user.username" ng-init="user.username=''"></input>
       <label id="password">Password</label>
-      <input type="password" name="password" ng-model="user.password"></input>
+      <input type="password" name="password" ng-model="user.password" ng-init="user.password=''"></input>
       <button ng-click="login(user)">Login</button>
     </form>
   </div>
