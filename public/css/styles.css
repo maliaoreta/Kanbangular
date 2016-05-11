@@ -61,7 +61,9 @@ button {
 
 body {
   background-color: #F2F2F3;
-  font-family: 'Open Sans', sans-serif; }
+  font-family: 'Open Sans', sans-serif;
+  height: 100%;
+  position: relative; }
 
 h1 {
   font-size: 26px; }
@@ -130,36 +132,6 @@ h1 {
     flex: 1 0 33%;
     text-align: center;
     margin-top: 10px; }
-  #tasks .addTask-container {
-    background-color: rgba(160, 160, 160, 0.8);
-    width: 41%;
-    height: 52%;
-    position: fixed;
-    left: 28.5%;
-    top: 25%;
-    border-radius: 10px;
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: center;
-    justify-content: center; }
-    #tasks .addTask-container .addTask {
-      display: flex;
-      flex-flow: column nowrap;
-      width: 70%; }
-      #tasks .addTask-container .addTask .addTaskInputContainer {
-        display: flex;
-        flex-flow: column nowrap;
-        margin-bottom: 1.8em; }
-      #tasks .addTask-container .addTask .addTaskFormElement {
-        height: 2em;
-        border-radius: 5px;
-        padding: 5px; }
-      #tasks .addTask-container .addTask #submitNewTaskBtn {
-        margin-bottom: 2em;
-        height: 2.5em; }
-      #tasks .addTask-container .addTask .addTaskError {
-        margin: 0;
-        padding-top: 5px; }
 
 #addTaskButton {
   background-color: #61a6ab;
@@ -409,3 +381,13 @@ h1 {
   font-size: 2em;
   left: 16em;
   color: red; }
+
+.addTask-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.5);
+  /*dim the background*/ }

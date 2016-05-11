@@ -76,48 +76,48 @@
     margin-top: 10px;
   }
 
-  .addTask-container {
-    background-color: rgba(160, 160, 160, .8);
-    width: 41%;
-    height: 52%;
-    position: fixed;
-    left: 28.5%;
-    top: 25%;
-    border-radius: 10px;
-    display: flex;
-    flex-flow: column nowrap;
-    align-items:center;
-    justify-content: center;
+  // .addTask-container {
+  //   background-color: rgba(160, 160, 160, .8);
+  //   width: 41%;
+  //   // height: 52%;
+  //   position: fixed;
+  //   left: 28.5%;
+  //   top: 25%;
+  //   border-radius: 10px;
+  //   display: flex;
+  //   flex-flow: column nowrap;
+  //   align-items:center;
+  //   justify-content: center;
 
-    .addTask {
-      display: flex;
-      flex-flow: column nowrap;
-      width: 70%;
+  //   .addTask {
+  //     display: flex;
+  //     flex-flow: column nowrap;
+  //     width: 70%;
 
-      .addTaskInputContainer {
-        display: flex;
-        flex-flow: column nowrap;
-        margin-bottom: 1.8em;
-      }
+  //     .addTaskInputContainer {
+  //       display: flex;
+  //       flex-flow: column nowrap;
+  //       margin-bottom: 1.8em;
+  //     }
 
-      .addTaskFormElement {
-        height: 2em;
-        border-radius: 5px;
-        padding: 5px;
+  //     .addTaskFormElement {
+  //       height: 2em;
+  //       border-radius: 5px;
+  //       padding: 5px;
 
-      }
+  //     }
 
-      #submitNewTaskBtn {
-        margin-bottom: 2em;
-        height: 2.5em;
-      }
+  //     #submitNewTaskBtn {
+  //       margin-bottom: 2em;
+  //       height: 2.5em;
+  //     }
 
-      .addTaskError {
-        margin: 0;
-        padding-top: 5px;
-      }
-    }
-  }
+  //     .addTaskError {
+  //       margin: 0;
+  //       padding-top: 5px;
+  //     }
+  //   }
+  // }
 }
 
 #addTaskButton {
