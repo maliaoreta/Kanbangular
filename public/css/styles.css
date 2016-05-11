@@ -77,7 +77,8 @@ h1 {
   flex-flow: row nowrap;
   height: 60px;
   width: 100%;
-  align-items: center; }
+  align-items: center;
+  top: 0; }
   #header .header-spacer {
     flex: 1 1 auto; }
   #header #addTaskButton {
@@ -269,21 +270,6 @@ h1 {
     padding: 10px;
     flex: 0 0 35px;
     margin-bottom: 10px; }
-
-#loginHeader {
-  display: flex;
-  flex-flow: row wrap;
-  margin: 1em;
-  font-size: 1.5em; }
-  #loginHeader a {
-    flex: 0 0 auto;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 1.5em;
-    text-decoration: none;
-    color: #666666; }
-    #loginHeader a:hover {
-      color: gray;
-      font-size: 1.55em; }
 
 #loginTitle {
   text-align: center;

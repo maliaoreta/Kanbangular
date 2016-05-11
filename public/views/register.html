@@ -21,10 +21,10 @@
   <form>
     <p>Username</p>
     <input type="text" ng-model="user.username" ng-init="user.username=''"></input>
-    <div class="errorMessage" ng-show="usernameError">{{usernameError}}</div>
+    <div class="errorMessage" ng-if="usernameError">{{usernameError}}</div>
     <p>Password</p>
     <input type="password" ng-model="user.password" ng-init="user.password=''"></input>
-    <div class="errorMessage" ng-show="passwordError">{{passwordError}}</div>
+    <div class="errorMessage" ng-if="passwordError">{{passwordError}}</div>
     <button ng-click="register(user)">Register</button>
   </form>
 </div>
