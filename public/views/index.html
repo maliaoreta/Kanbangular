@@ -77,9 +77,11 @@
 
         <div class='taskForm' ng-show="getForm(this)">
             <input type="text" ng-model="updatedFields.title" ng-init="updatedFields.title=todo.title"></input>
-            <div class="editTaskError" ng-show="this.title">{{this.title}}</div>
+            <div class="editTaskError" ng-if="this.title"><i class="fa fa-times" aria-hidden="true"></i>
+{{this.title}}</div>
             <textarea ng-model="updatedFields.description" ng-init="updatedFields.description=todo.description"></textarea>
-            <div class="editTaskError" ng-show="this.description">{{this.description}}</div>
+            <div class="editTaskError" ng-if="this.description"><i class="fa fa-times fa-lg" aria-hidden="true"></i>
+{{this.description}}</div>
           <input type="hidden" ng-model="updatedFields.status" ng-init="updatedFields.status=todo.status"></input>
           <button ng-click="edit(todo, updatedFields, this)">Submit</button>
           <button ng-click="toggleForm(this, todo)">Exit</button>
@@ -117,9 +119,11 @@
 
         <div class='taskForm' ng-show="getForm(this)">
           <input type="text" ng-model="updatedFields.title" ng-init="updatedFields.title=inProgress.title"></input>
-          <div class="editTaskError">{{this.title}}</div>
+          <div class="editTaskError" ng-if="this.title"><i class="fa fa-times" aria-hidden="true"></i>
+{{this.title}}</div>
           <textarea ng-model="updatedFields.description" ng-init="updatedFields.description=inProgress.description"></textarea>
-          <div class="editTaskError">{{this.description}}</div>
+          <div class="editTaskError" ng-if="this.description"><i class="fa fa-times" aria-hidden="true"></i>
+{{this.description}}</div>
           <input type="hidden" ng-model="updatedFields.status" ng-init="updatedFields.status=inProgress.status"></input>
           <button ng-click="edit(inProgress, updatedFields, this)">Submit</button>
           <button ng-click="toggleForm(this, inProgress)">Exit</button>
@@ -157,9 +161,10 @@
 
           <div class='taskForm' ng-show="getForm(this)">
             <input type="text" ng-model="updatedFields.title" ng-init="updatedFields.title=done.title"></input>
-            <div class="editTaskError">{{this.title}}</div>
+            <div class="editTaskError" ng-if="this.title"><i class="fa fa-times" aria-hidden="true"></i>
+{{this.title}}</div>
             <textarea ng-model="updatedFields.description" ng-init="updatedFields.description=done.description"></textarea>
-            <div class="editTaskError">{{this.description}}</div>
+            <div class="editTaskError" ng-if="this.description"><i class="fa fa-times" aria-hidden="true"></i>{{this.description}}</div>
             <input type="hidden" ng-model="updatedFields.status" ng-init="updatedFields.status=done.status"></input>
             <button ng-click="edit(done, updatedFields, this)">Submit</button>
             <button ng-click="toggleForm(this, done)">Exit</button>

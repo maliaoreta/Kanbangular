@@ -161,6 +161,7 @@
 .task {
   width: 85%;
   flex: 1 1 auto;
+  min-height: 300px;
   border: 1px solid $darkYellow;
   box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19), 0 8px 17px 0 rgba(0, 0, 0, 0.2);
   text-align: left;
@@ -228,8 +229,18 @@
   flex: 1 1 auto;
 
   .editTaskError {
-    flex: 0 0 30px;
-    //border: 1px solid red;
+    flex: 0 0 20px;
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 1px solid $red;
+    background-color: $lightRed;
+    color: white;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    i {
+      margin-right: 10px;
+    }
   }
 
   textarea {
