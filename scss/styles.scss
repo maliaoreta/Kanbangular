@@ -33,14 +33,17 @@ button {
     color: white;
   }
 }
-html, body, #view {
+html, body {
   height: 100%;
 }
+
+#view {
+  position: relative;
+}
+
 body {
   background-color: $grey;
   font-family: 'Open Sans', sans-serif;
-  height: 100%;
-  position: relative;
 }
 
 h1 {
