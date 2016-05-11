@@ -26,11 +26,11 @@
     <div class="addTask" ng-init="newTask = {title:'', description:''}">
       <div class="addTaskInputContainer">
         <input class="addTaskFormElement" type="text" ng-model="newTask.title" placeholder="title" required></input>
-        <div class="addTaskError" ng-show="getPostForm">{{title}}</div>
+        <div class="errorMessage addTaskError" ng-if="getPostForm">{{title}}</div>
       </div>
       <div class="addTaskInputContainer">
         <input class="addTaskFormElement" type="text" ng-model="newTask.description" placeholder="description" required></input>
-        <div class="addTaskError" ng-show="getPostForm">{{description}}</div>
+        <div class="errorMessage addTaskError" ng-if="getPostForm">{{description}}</div>
       </div>
 
       <div class="addTaskInputContainer">
@@ -40,7 +40,7 @@
           <option value="In-Progress">In-Progress</option>
           <option value="Done">Done</option>
         </select>
-        <div class="addTaskError" ng-show="getPostForm">{{status}}</div>
+        <div class="errorMessage addTaskError" ng-if="getPostForm">{{status}}</div>
       </div>
 
       <button id="submitNewTaskBtn" class="postButtons addTaskFormElement" ng-click="postTask(newTask)" ng-show="getPostForm">Submit</button>
