@@ -23,10 +23,10 @@
     <button class="postButtons" id="exitButton" ng-click="togglePostForm()"><i class="fa fa-times" aria-hidden="true"></i></button>
 
     <input class="addTaskFormElement" type="text" ng-model="newTask.title" placeholder="title" required></input>
-    <div class="addTaskError" ng-if="title">{{title}}</div>
+    <div class="addTaskError" ng-if="title"><i class="fa fa-times" aria-hidden="true"></i>{{title}}</div>
 
     <textarea class="addTaskFormElement" type="text" ng-model="newTask.description" placeholder="description" required></textarea>
-    <div class="addTaskError" ng-if="description">{{description}}</div>
+    <div class="addTaskError" ng-if="description"><i class="fa fa-times" aria-hidden="true"></i>{{description}}</div>
 
     <select class="addTaskFormElement" ng-model="newTask.status" required>
       <option value="">---Please select---</option>
@@ -34,7 +34,7 @@
       <option value="In-Progress">In-Progress</option>
       <option value="Done">Done</option>
     </select>
-    <div class="addTaskError" ng-if="status">{{status}}</div>
+    <div class="addTaskError" ng-if="status"><i class="fa fa-times" aria-hidden="true"></i>{{status}}</div>
 
     <button id="submitNewTaskBtn" class="postButtons addTaskFormElement" ng-click="postTask(newTask)" ng-show="getPostForm">Submit</button>
 

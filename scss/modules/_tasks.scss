@@ -158,7 +158,6 @@
 .task {
   width: 85%;
   flex: 1 1 auto;
-  min-height: 300px;
   border: 1px solid $darkYellow;
   box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19), 0 8px 17px 0 rgba(0, 0, 0, 0.2);
   text-align: left;
@@ -210,12 +209,10 @@
 
 .body {
   .title {
-    font-size: 22px;
     margin-bottom: 10px;
     border-bottom: 1px solid black;
   }
   .description {
-    font-size: 15px;
     margin-bottom: 10px;
   }
 }

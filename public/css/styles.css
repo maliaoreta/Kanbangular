@@ -149,7 +149,6 @@ h1 {
 .task {
   width: 85%;
   flex: 1 1 auto;
-  min-height: 300px;
   border: 1px solid #f8e3be;
   box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19), 0 8px 17px 0 rgba(0, 0, 0, 0.2);
   text-align: left;
@@ -191,12 +190,10 @@ h1 {
     padding: 5px; }
 
 .body .title {
-  font-size: 22px;
   margin-bottom: 10px;
   border-bottom: 1px solid black; }
 
 .body .description {
-  font-size: 15px;
   margin-bottom: 10px; }
 
 .taskForm {
@@ -242,13 +239,17 @@ h1 {
   align-items: center;
   padding-top: 180px; }
   .addTask-container .addTask {
+    position: fixed;
+    top: 15%;
+    left: 34.3%;
     border: 1px solid #f8e3be;
     background-color: #FCF3E3;
     padding: 10px;
     display: flex;
     flex: 0 0 auto;
     width: 30%;
-    flex-flow: column nowrap; }
+    flex-flow: column nowrap;
+    overflow: auto; }
     .addTask-container .addTask .addTaskInputContainer {
       flex: 0 0 100px; }
     .addTask-container .addTask textarea {
@@ -257,9 +258,15 @@ h1 {
       resize: none;
       margin-bottom: 10px; }
     .addTask-container .addTask input, .addTask-container .addTask select {
+      flex: 0 0 20px;
+      padding: 5px;
+      margin-bottom: 10px; }
+    .addTask-container .addTask select {
+      flex: 0 0 30px;
       padding: 5px;
       margin-bottom: 10px; }
     .addTask-container .addTask button {
+      flex: 1 0 35px;
       padding: 10px; }
 
 .addTaskError {
