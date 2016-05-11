@@ -131,22 +131,18 @@
   }
 }
 
-.postButtons {
-  background-color: $teal;
-  border-color: $darkTeal;
-  color: white;
+// .postButtons {
+//   background-color: $teal;
+//   border-color: $darkTeal;
+//   color: white;
 
-  &:hover {
-    background-color: $darkTeal;
-    border-color: darken($darkTeal, 5%);
-  }
-}
+//   &:hover {
+//     background-color: $darkTeal;
+//     border-color: darken($darkTeal, 5%);
+//   }
+// }
 
-#exitButton {
- flex: 0 0 auto;
- align-self: flex-end;
- margin: 1em 1em 3em;
-}
+
 
 .task-column {
   display: flex;

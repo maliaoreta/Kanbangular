@@ -4,6 +4,58 @@
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 10;
-  background-color: rgba(0,0,0,0.5);  
+  background-color: rgba(0,0,0,0.5);
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  padding-top: 180px;
+
+  .addTask {
+    border: 1px solid $darkYellow;
+    background-color: $lightYellow;
+    padding: 10px;
+    display:flex;
+    flex: 0 0 auto;
+    width: 30%;
+    flex-flow: column nowrap;
+    .addTaskInputContainer  {
+      flex: 0 0 100px;
+    }
+
+    textarea {
+      flex: 1 0 150px;
+      height: 100%;
+      resize: none;
+      margin-bottom: 10px;
+    }
+
+    input, select {
+      padding: 5px;
+      margin-bottom: 10px;
+    }
+    button {
+      padding: 10px;
+    }
+  }
+}
+
+.addTaskError {
+    flex: 0 0 20px;
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 1px solid $red;
+    background-color: $lightRed;
+    color: white;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    i {
+      margin-right: 10px;
+    }
+}
+#exitButton {
+ flex: 0 0 auto;
+ align-self: flex-end;
+ padding: 8px;
+ margin-bottom: 10px;
 }
