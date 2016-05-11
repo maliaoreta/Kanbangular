@@ -59,6 +59,9 @@ button {
     background-color: #d4c2b3;
     color: white; }
 
+html, body, #view {
+  height: 100%; }
+
 body {
   background-color: #F2F2F3;
   font-family: 'Open Sans', sans-serif;
@@ -67,10 +70,6 @@ body {
 
 h1 {
   font-size: 26px; }
-
-.errorMessage {
-  color: red;
-  margin-left: 1em; }
 
 #header {
   background-color: #ACCEC0;
@@ -243,132 +242,49 @@ h1 {
     flex: 0 0 35px;
     margin-bottom: 10px; }
 
-#loginTitle {
-  text-align: center;
-  margin: 0.5em;
-  font-size: 1.5em;
-  color: #666666; }
-
-#loginInput {
+#authContainer {
   display: flex;
   flex-flow: column nowrap;
-  font-family: 'Open Sans', sans-serif;
-  max-width: 35em;
-  margin: auto;
-  background-color: rgba(172, 206, 192, 0.5);
-  border: outset 2px #cce1d8;
-  height: 25em;
-  border-radius: 1em; }
-  #loginInput #register {
-    color: #4d4d4d;
-    flex: 0 0 auto;
-    padding: 1em; }
-    #loginInput #register a {
-      text-decoration: none;
-      color: #4d4d4d; }
-      #loginInput #register a:hover {
-        font-size: 1.05em;
-        color: gray; }
-  #loginInput p {
-    flex: 0 0 auto;
-    margin: 1em;
-    color: #5a5a5a; }
-  #loginInput form {
+  align-items: center;
+  height: 100%; }
+  #authContainer #authTitle {
+    padding-top: 160px;
+    margin-bottom: 10px; }
+  #authContainer #auth {
+    padding: 20px;
+    flex: 0 1 auto;
+    width: 30%;
+    border: 1px solid #f8e3be;
+    background-color: #FCF3E3;
     display: flex;
     flex-flow: column nowrap; }
-  #loginInput input {
-    flex: 0 0 auto;
-    border-radius: 0.2em;
-    padding-left: 1em;
-    margin: 0 1em 1.5em 1em;
-    height: 3em; }
-    #loginInput input:focus {
-      box-shadow: 0 0 5px 1px #7196c2; }
-  #loginInput button {
-    margin: 1em;
-    font-family: 'Open Sans', sans-serif;
-    background-color: #61a6ab;
-    border: 2px outset #61a6ab;
-    border-radius: 5px;
-    height: 3em;
-    color: white; }
-    #loginInput button:hover {
-      border: outset 2px #54999e;
-      background-color: #54999e; }
+    #authContainer #auth #switchAuth {
+      flex: 0 0 45px;
+      height: 100%; }
+    #authContainer #auth #authForm {
+      flex: 0 0 40%;
+      display: flex;
+      flex-flow: column nowrap; }
+      #authContainer #auth #authForm label {
+        margin-bottom: 10px; }
+      #authContainer #auth #authForm input {
+        padding: 5px;
+        margin-bottom: 10px; }
+      #authContainer #auth #authForm button {
+        padding: 10px; }
 
-#kanbangularHeader {
+.authError {
+  flex: 0 0 20px;
+  padding: 5px;
+  margin-bottom: 10px;
+  border: 1px solid #EE4B3E;
+  background-color: #E38464;
+  color: white;
   display: flex;
-  flex-flow: row wrap;
-  margin: 1em;
-  font-size: 1.5em; }
-  #kanbangularHeader .header {
-    flex: 0 0 auto;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 1.5em; }
-    #kanbangularHeader .header a {
-      text-decoration: none;
-      color: #666666; }
-    #kanbangularHeader .header:hover {
-      color: gray;
-      font-size: 1.55em; }
-  #kanbangularHeader #headerSpace {
-    flex: 1 0 50%; }
-  #kanbangularHeader #logoutLink {
-    font-size: 0.75em; }
-
-#registerTitle {
-  text-align: center;
-  margin: 0.5em;
-  font-size: 1.5em;
-  color: #666666; }
-
-#registerInput {
-  display: flex;
-  flex-flow: column nowrap;
-  font-family: 'Open Sans', sans-serif;
-  max-width: 35em;
-  margin: auto;
-  background-color: rgba(172, 206, 192, 0.5);
-  border: outset 2px #cce1d8;
-  height: 25em;
-  border-radius: 1em; }
-  #registerInput #login {
-    color: #4d4d4d;
-    flex: 0 0 auto;
-    padding: 1em; }
-    #registerInput #login a {
-      text-decoration: none;
-      color: #4d4d4d;
-      margin: 1px; }
-      #registerInput #login a:hover {
-        font-size: 1.05em;
-        color: gray; }
-  #registerInput p {
-    flex: 0 0 auto;
-    margin: 1em;
-    color: #5a5a5a; }
-  #registerInput form {
-    display: flex;
-    flex-flow: column nowrap; }
-  #registerInput input {
-    flex: 0 0 auto;
-    border-radius: 0.2em;
-    padding-left: 1em;
-    margin: 0 1em 1.5em 1em;
-    height: 3em; }
-    #registerInput input:focus {
-      box-shadow: 0 0 5px 2px #7196c2; }
-  #registerInput button {
-    margin: 1em;
-    font-family: 'Open Sans', sans-serif;
-    background-color: #61a6ab;
-    border: outset 2px #61a6ab;
-    border-radius: 5px;
-    height: 3em;
-    color: white; }
-    #registerInput button:hover {
-      border: outset 2px #54999e;
-      background-color: #54999e; }
+  flex-flow: row nowrap;
+  align-items: center; }
+  .authError i {
+    margin-right: 10px; }
 
 #postIt {
   padding-top: 4em; }

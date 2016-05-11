@@ -30,7 +30,7 @@
           })
           .catch(function(response) {
             $scope.loginErrorMsg = '';
-            $scope.userExistsErrorMsg = '';
+            $scope.userExistsError = '';
             $scope.usernameError = '';
             $scope.passwordError = '';
 

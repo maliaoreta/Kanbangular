@@ -1,10 +1,5 @@
 @import 'partials/reset';
 
-// $lightGreen: #9CE1B0;
-// $darkGreen: #77B484;
-// $earthColor: #E7BB77;
-// $darkColor: #46554C;
-
 $lightTan: lighten(#C2A892, 20%);
 $tan: darken($lightTan, 5%);
 $header: #ACCEC0;
@@ -38,7 +33,9 @@ button {
     color: white;
   }
 }
-
+html, body, #view {
+  height: 100%;
+}
 body {
   background-color: $grey;
   font-family: 'Open Sans', sans-serif;
@@ -50,13 +47,7 @@ h1 {
   font-size: 26px;
 }
 
-.errorMessage {
-  color: red;
-  margin-left: 1em;
-}
-
 @import 'modules/tasks';
-@import 'modules/login';
-@import 'modules/register';
-@import 'modules/error';
 @import 'modules/addTask';
+@import 'modules/auth';
+@import 'modules/error';
